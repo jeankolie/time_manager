@@ -1,0 +1,116 @@
+/*
+Template Name: Ubold - Responsive Bootstrap 4 Admin Dashboard
+Author: CoderThemes
+Version: 3.1.0
+Website: https://coderthemes.com/
+Contact: support@coderthemes.com
+File: Main Css File
+*/
+
+
+//Fonts
+@import "custom/fonts/fonts";
+
+//Core files
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+@import "_variables.scss";
+@import "node_modules/bootstrap/scss/mixins.scss";
+
+
+
+// Structure
+@import "custom/structure/_general.scss";
+@import "custom/structure/_left-menu.scss";
+@import "custom/structure/_topbar.scss";
+@import "custom/structure/_page-head.scss";
+@import "custom/structure/_footer.scss";
+@import "custom/structure/_right-sidebar.scss";
+@import "custom/structure/_layouts.scss";
+
+//Components
+@import "custom/components/_helper.scss";
+@import "custom/components/_social.scss";
+@import "custom/components/_widgets.scss";
+@import "custom/components/_custom-checkbox.scss";
+@import "custom/components/_custom-radio.scss";
+@import "custom/components/_ribbons.scss";
+@import "custom/components/_print.scss";
+@import "custom/components/_preloader.scss";
+
+//Pages
+@import "custom/pages/_authentication.scss";
+@import "custom/pages/_components-demo.scss";
+@import "custom/pages/_error.scss";
+@import "custom/pages/_logout.scss";
+@import "custom/pages/_faq.scss";
+@import "custom/pages/_maintenance.scss";
+@import "custom/pages/_timeline.scss";
+@import "custom/pages/_email.scss";
+@import "custom/pages/_sitemap.scss";
+@import "custom/pages/_search-results.scss";
+@import "custom/pages/_pricing.scss";
+@import "custom/pages/_gallery.scss";
+@import "custom/pages/_coming-soon.scss";
+@import "custom/pages/_profile.scss";
+@import "custom/pages/_taskboard.scss";
+@import "custom/pages/_ecommerce.scss";
+
+// Vendors
+@import "custom/plugins/_metisMenu.scss";
+
+// Plugins
+@import "custom/plugins/_waves.scss";
+@import "custom/plugins/_ion-rangeslider.scss";
+@import "custom/plugins/_calendar.scss";
+@import "custom/plugins/_sparkline-chart.scss";
+@import "custom/plugins/_datatable.scss";
+@import "custom/plugins/_daterange.scss";
+@import "custom/plugins/_form-wizard.scss";
+@import "custom/plugins/_select2.scss";
+@import "custom/plugins/_slimscroll.scss";
+@import "custom/plugins/_toaster.scss";
+@import "custom/plugins/_sweetalert.scss";
+@import "custom/plugins/_custom-select.scss";
+@import "custom/plugins/_tippy.scss";
+@import "custom/plugins/_nestable-list.scss";
+@import "custom/plugins/_hopscotch.scss";
+@import "custom/plugins/_flot.scss";
+@import "custom/plugins/_morris.scss";
+@import "custom/plugins/_chartjs.scss";
+@import "custom/plugins/_chartist.scss";
+@import "custom/plugins/_c3.scss";
+@import "custom/plugins/_ricksaw.scss";
+@import "custom/plugins/_responsive-table.scss";
+@import "custom/plugins/_footables.scss";
+@import "custom/plugins/_bootstrap-tables.scss";
+@import "custom/plugins/_tablesaw.scss";
+@import "custom/plugins/_jsgrid.scss";
+@import "custom/plugins/_multiple-select.scss";
+@import "custom/plugins/_autocomplete.scss";
+@import "custom/plugins/_bootstrap-select.scss";
+@import "custom/plugins/_bootstrap-touchspin.scss";
+@import "custom/plugins/_parsley.scss";
+@import "custom/plugins/_flatpickr.scss";
+@import "custom/plugins/_clockpicker.scss";
+@import "custom/plugins/_summernote.scss";
+@import "custom/plugins/_quilljs-editor.scss";
+@import "custom/plugins/_dropzone.scss";
+@import "custom/plugins/_dropify.scss";
+@import "custom/plugins/_x-editable.scss";
+@import "custom/plugins/_cropper.scss";
+@import "custom/plugins/_google-maps.scss";
+@import "custom/plugins/_vector-maps.scss";
+@import "custom/plugins/_mapeal-maps.scss";
+@import "custom/plugins/_datepicker.scss";
+
+// RTL
+@import "custom/rtl/_general-rtl.scss";
+@import "custom/rtl/_bootstrap-rtl.scss";
+@import "custom/rtl/_spacing-rtl.scss";
+@import "custom/rtl/_float-rtl.scss";
+@import "custom/rtl/_text-rtl.scss";
+@import "custom/rtl/_structure-rtl.scss";
+@import "custom/rtl/_plugins-rtl.scss";
+@import "custom/rtl/_components-rtl.scss";
+@import "custom/rtl/_pages-rtl.scss";

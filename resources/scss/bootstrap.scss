@@ -1,0 +1,32 @@
+/*
+Template Name: Ubold - Responsive Bootstrap 4 Admin Dashboard
+Author: CoderThemes
+Version: 3.0.0
+Website: https://coderthemes.com/
+Contact: support@coderthemes.com
+File: Custom Bootstrap Css File
+*/
+
+//Core files
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+@import "_variables.scss";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+//Components
+@import "custom/components/_accordions.scss";
+@import "custom/components/_badge.scss";
+@import "custom/components/_backgrounds.scss";
+@import "custom/components/_breadcrumb.scss";
+@import "custom/components/_buttons.scss";
+@import "custom/components/_card.scss";
+@import "custom/components/_dropdown.scss";
+@import "custom/components/_forms.scss";
+@import "custom/components/_modal.scss";
+@import "custom/components/_nav.scss";
+@import "custom/components/_pagination.scss";
+@import "custom/components/_popover.scss";
+@import "custom/components/_progress.scss";
+@import "custom/components/_reboot.scss";
+@import "custom/components/_tables.scss";
+@import "custom/components/_type.scss";
