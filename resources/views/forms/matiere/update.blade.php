@@ -26,7 +26,7 @@
 
                         <!-- Form row -->
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title">Form row</h4>
@@ -34,56 +34,30 @@
                                             You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
                                         </p>
 
-                                        <form>
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">{{ $errors->first() }}</div>
+                                        @endif
+
+                                        @if (\Session::has('success'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('success') }}
+                                            </div>
+                                        @endif
+
+                                        <form method="POST" action="{{ route('matieres.update', $matiere->id_matiere) }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="id" value="{{ $matiere->id_matiere }}">
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4" class="col-form-label">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                                <div class="form-group col-md-12">
+                                                    <label for="inputEmail4" class="col-form-label">Nom de la matiere:</label>
+                                                    <input type="text" class="form-control" name="nom" value="{{ old('nom') ?? $matiere->nom }}">
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4" class="col-form-label">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                                                </div>
-                                            </div>
 
-                                            <div class="form-group">
-                                                <label for="inputAddress" class="col-form-label">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                                             </div>
+                                           
 
-                                            <div class="form-group">
-                                                <label for="inputAddress2" class="col-form-label">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                            </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity" class="col-form-label">City</label>
-                                                    <input type="text" class="form-control" id="inputCity">
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState" class="col-form-label">State</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option>Choose</option>
-                                                        <option>Option 1</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip" class="col-form-label">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck11">
-                                                    <label class="custom-control-label" for="customCheck11">Check this custom checkbox</label>
-                                                </div>
-                                            </div>
-
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Sign in</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">MODIFIER</button>
 
                                         </form>
 

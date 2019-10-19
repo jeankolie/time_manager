@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);">
+                    <a href="/matieres">
                         <i class="fe-airplay"></i>
                         <span class="badge badge-success badge-pill float-right">2</span>
                         <span> Matiere </span>
