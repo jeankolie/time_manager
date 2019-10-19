@@ -15,21 +15,26 @@ class CreateLicence extends Seeder
     {
         DB::table('licence')->insert(
         	[
-        	'nom_licence' => 'Licence 1',
+        	'nom' => 'Licence 1',
         	'slug' => Str::slug('Licence 1', '-')
-        	],
-        	[
-        	'nom_licence' => 'Licence 2',
-        	'slug' => Str::slug('Licence 2', '-')
-        	],
-        	[
-        	'nom_licence' => 'Licence 3',
-        	'slug' => Str::slug('Licence 3', '-')
-        	],
-        	[
-        	'nom_licence' => 'Licence 4',
-        	'slug' => Str::slug('Licence 4', '-')
-        	]
-    	);
+    	]);
+
+        DB::table('licence')->insert(
+            [
+            'nom' => 'Licence 2',
+            'slug' => Str::slug('Licence 2', '-')
+        ]);
+
+        DB::table('licence')->insert(
+            [
+            'nom' => 'Licence 3',
+            'slug' => Str::slug('Licence 3', '-')
+        ]);
+
+        DB::table('licence')->insert(
+            [
+            'nom' => 'Licence 4',
+            'slug' => Str::slug('Licence 4', '-')
+        ]);
     }
 }

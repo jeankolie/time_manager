@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_licence
  * @property string $nom
  * @property string $slug
- * @property Semestre[] $semestres
  * @property Enseigne[] $enseignes
+ * @property Semestre[] $semestres
  * @property Departement[] $departements
  */
 class Licence extends Model
@@ -48,19 +48,19 @@ class Licence extends Model
     protected $dateFormat = 'U';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function semestres()
-    {
-        return $this->belongsToMany('App\Models\Semestre', 'comporte', 'id_licence', 'id_semestre');
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function enseignes()
     {
         return $this->hasMany('App\Models\Enseigne', 'id_licence', 'id_licence');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function semestres()
+    {
+        return $this->hasMany('App\Models\Semestre', 'id_licence', 'id_licence');
     }
 
     /**

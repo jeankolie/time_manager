@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id_semestre
+ * @property int $id_licence
  * @property string $nom
- * @property string $slug
- * @property Licence[] $licences
+ * @property Licence $licence
  * @property Enseigne[] $enseignes
  */
 class Semestre extends Model
@@ -30,7 +30,7 @@ class Semestre extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nom', 'slug'];
+    protected $fillable = ['id_licence', 'nom'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -47,11 +47,11 @@ class Semestre extends Model
     protected $dateFormat = 'U';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function licences()
+    public function licence()
     {
-        return $this->belongsToMany('App\Models\Licence', 'comporte', 'id_semestre', 'id_licence');
+        return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
     }
 
     /**
