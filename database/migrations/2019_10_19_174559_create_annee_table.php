@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLicenceTable extends Migration {
+class CreateAnneeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,10 @@ class CreateLicenceTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('licence', function(Blueprint $table)
+		Schema::create('annee', function(Blueprint $table)
 		{
-			$table->integer('id_licence')->primary();
-			$table->string('nom_licence', 15)->nullable();
-			$table->string('slug', 25)->nullable();
+			$table->integer('id_annee', true);
+			$table->string('nom', 50);
 		});
 	}
 
@@ -28,7 +27,7 @@ class CreateLicenceTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('licence');
+		Schema::drop('annee');
 	}
 
 }

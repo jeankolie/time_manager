@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateAnneeTable extends Migration {
+class CreateMatiereTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateAnneeTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('annee', function(Blueprint $table)
+		Schema::create('matiere', function(Blueprint $table)
 		{
-			$table->integer('id_annee')->primary();
-			$table->string('nom_annee', 15)->nullable();
-			$table->string('slug', 25)->nullable();
+			$table->integer('id_matiere', true);
+			$table->string('nom', 100);
+			$table->string('slug', 100);
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateAnneeTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('annee');
+		Schema::drop('matiere');
 	}
 
 }

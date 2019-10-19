@@ -14,10 +14,9 @@ class CreateSemestreTable extends Migration {
 	{
 		Schema::create('semestre', function(Blueprint $table)
 		{
-			$table->integer('id_semestre')->primary();
-			$table->integer('id_licence')->index('FK_comporte');
-			$table->string('nom_semestre', 15)->nullable();
-			$table->string('slug', 25)->nullable();
+			$table->integer('id_semestre', true);
+			$table->string('nom', 50);
+			$table->string('slug', 50);
 		});
 	}
 

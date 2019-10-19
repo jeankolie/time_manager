@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMatiereTable extends Migration {
+class CreateComporteTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateMatiereTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('matiere', function(Blueprint $table)
+		Schema::create('comporte', function(Blueprint $table)
 		{
-			$table->integer('id_matiere')->primary();
-			$table->string('nom_matiere', 15)->nullable();
-			$table->string('slug', 25)->nullable();
+			$table->integer('id_semestre');
+			$table->integer('id_licence')->index('comporte_licence0_FK');
+			$table->primary(['id_semestre','id_licence']);
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateMatiereTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('matiere');
+		Schema::drop('comporte');
 	}
 
 }

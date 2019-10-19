@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSenderTable extends Migration {
+class CreateLicenceTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateSenderTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sender', function(Blueprint $table)
+		Schema::create('licence', function(Blueprint $table)
 		{
-			$table->integer('id_licence');
-			$table->integer('id_departemnt')->index('FK_sender2');
-			$table->primary(['id_licence','id_departemnt']);
+			$table->integer('id_licence', true);
+			$table->string('nom', 50);
+			$table->string('slug', 50);
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateSenderTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sender');
+		Schema::drop('licence');
 	}
 
 }

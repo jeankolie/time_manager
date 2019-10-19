@@ -14,12 +14,10 @@ class CreatePersonnelTable extends Migration {
 	{
 		Schema::create('personnel', function(Blueprint $table)
 		{
-			$table->integer('id_personnel')->primary();
-			$table->integer('id_departemnt')->index('FK_appartenir');
-			$table->string('nom_personnel', 20)->nullable();
-			$table->string('login', 15)->nullable();
-			$table->string('password', 100)->nullable();
-			$table->string('slug', 25)->nullable();
+			$table->integer('id_personnel', true);
+			$table->string('nom', 150);
+			$table->string('login', 50);
+			$table->string('password', 100);
 		});
 	}
 

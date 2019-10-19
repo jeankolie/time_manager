@@ -14,8 +14,8 @@ class AddForeignKeysToSenderTable extends Migration {
 	{
 		Schema::table('sender', function(Blueprint $table)
 		{
-			$table->foreign('id_licence', 'FK_sender')->references('id_licence')->on('licence')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('id_departemnt', 'FK_sender2')->references('id_departemnt')->on('departement')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_departement', 'sender_departement_FK')->references('id_departement')->on('departement')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_licence', 'sender_licence0_FK')->references('id_licence')->on('licence')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -29,8 +29,8 @@ class AddForeignKeysToSenderTable extends Migration {
 	{
 		Schema::table('sender', function(Blueprint $table)
 		{
-			$table->dropForeign('FK_sender');
-			$table->dropForeign('FK_sender2');
+			$table->dropForeign('sender_departement_FK');
+			$table->dropForeign('sender_licence0_FK');
 		});
 	}
 

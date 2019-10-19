@@ -14,8 +14,8 @@ class AddForeignKeysToAssocierTable extends Migration {
 	{
 		Schema::table('associer', function(Blueprint $table)
 		{
-			$table->foreign('id_departemnt', 'FK_associer')->references('id_departemnt')->on('departement')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('id_matiere', 'FK_associer2')->references('id_matiere')->on('matiere')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_departement', 'associer_departement_FK')->references('id_departement')->on('departement')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_matiere', 'associer_matiere0_FK')->references('id_matiere')->on('matiere')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -29,8 +29,8 @@ class AddForeignKeysToAssocierTable extends Migration {
 	{
 		Schema::table('associer', function(Blueprint $table)
 		{
-			$table->dropForeign('FK_associer');
-			$table->dropForeign('FK_associer2');
+			$table->dropForeign('associer_departement_FK');
+			$table->dropForeign('associer_matiere0_FK');
 		});
 	}
 
