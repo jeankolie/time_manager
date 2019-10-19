@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id_departement
- * @property int $id_matiere
- * @property Departement $departement
- * @property Matiere $matiere
+ * @property int $id_semestre
+ * @property int $id_licence
+ * @property Licence $licence
+ * @property Semestre $semestre
  */
-class Associer extends Model
+class Comporte extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'associer';
+    protected $table = 'comporte';
 
     /**
      * @var array
@@ -41,16 +41,16 @@ class Associer extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function departement()
+    public function licence()
     {
-        return $this->belongsTo('App\Models\Departement', 'id_departement', 'id_departement');
+        return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function matiere()
+    public function semestre()
     {
-        return $this->belongsTo('App\Models\Matiere', 'id_matiere', 'id_matiere');
+        return $this->belongsTo('App\Models\Semestre', 'id_semestre', 'id_semestre');
     }
 }

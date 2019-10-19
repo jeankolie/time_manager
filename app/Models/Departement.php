@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id_departemnt
- * @property string $nom_departement
+ * @property int $id_departement
+ * @property string $nom
  * @property string $responsable
  * @property string $slug
- * @property Matiere[] $matieres
- * @property Enseigner[] $enseigners
  * @property Personnel[] $personnels
+ * @property Matiere[] $matieres
+ * @property Enseigne[] $enseignes
  * @property Licence[] $licences
  */
 class Departement extends Model
@@ -28,19 +28,12 @@ class Departement extends Model
      * 
      * @var string
      */
-    protected $primaryKey = 'id_departemnt';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
+    protected $primaryKey = 'id_departement';
 
     /**
      * @var array
      */
-    protected $fillable = ['nom_departement', 'responsable', 'slug'];
+    protected $fillable = ['nom', 'responsable', 'slug'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -59,25 +52,25 @@ class Departement extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function matieres()
-    {
-        return $this->belongsToMany('App\Models\Matiere', 'associer', 'id_departemnt', 'id_matiere');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function enseigners()
-    {
-        return $this->hasMany('App\Models\Enseigner', 'id_departemnt', 'id_departemnt');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function personnels()
     {
-        return $this->hasMany('App\Models\Personnel', 'id_departemnt', 'id_departemnt');
+        return $this->belongsToMany('App\Models\Personnel', 'appartenir', 'id_departement', 'id_personnel');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function matieres()
+    {
+        return $this->belongsToMany('App\Models\Matiere', 'associer', 'id_departement', 'id_matiere');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function enseignes()
+    {
+        return $this->hasMany('App\Models\Enseigne', 'id_departement', 'id_departement');
     }
 
     /**
@@ -85,6 +78,6 @@ class Departement extends Model
      */
     public function licences()
     {
-        return $this->belongsToMany('App\Models\Licence', 'sender', 'id_departemnt', 'id_licence');
+        return $this->belongsToMany('App\Models\Licence', 'sender', 'id_departement', 'id_licence');
     }
 }

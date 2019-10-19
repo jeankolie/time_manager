@@ -22,7 +22,7 @@ class CreateEnseigneTable extends Migration {
 			$table->string('professeur', 150);
 			$table->string('jour', 15);
 			$table->string('intervale', 15);
-			$table->primary(['id_departement','id_annee','id_matiere','id_semestre','id_licence']);
+			$table->primary(['id_departement','id_annee','id_matiere','id_semestre','id_licence'], 'primary_key_enseigner');
 		});
 	}
 

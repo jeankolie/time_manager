@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id_annee
- * @property string $nom_annee
- * @property string $slug
+ * @property string $nom
+ * @property Enseigne[] $enseignes
  */
 class Annee extends Model
 {
@@ -26,16 +26,9 @@ class Annee extends Model
     protected $primaryKey = 'id_annee';
 
     /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * @var array
      */
-    protected $fillable = ['nom_annee', 'slug'];
+    protected $fillable = ['nom'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -51,4 +44,11 @@ class Annee extends Model
      */
     protected $dateFormat = 'U';
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function enseignes()
+    {
+        return $this->hasMany('App\Models\Enseigne', 'id_annee', 'id_annee');
+    }
 }

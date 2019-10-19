@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id_personnel
  * @property int $id_departement
- * @property int $id_matiere
  * @property Departement $departement
- * @property Matiere $matiere
+ * @property Personnel $personnel
  */
-class Associer extends Model
+class appartenir extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'associer';
+    protected $table = 'appartenir';
 
     /**
      * @var array
@@ -49,8 +49,8 @@ class Associer extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function matiere()
+    public function personnel()
     {
-        return $this->belongsTo('App\Models\Matiere', 'id_matiere', 'id_matiere');
+        return $this->belongsTo('App\Models\Personnel', 'id_personnel', 'id_personnel');
     }
 }

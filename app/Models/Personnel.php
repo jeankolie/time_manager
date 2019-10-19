@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id_personnel
- * @property int $id_departemnt
- * @property string $nom_personnel
+ * @property string $nom
  * @property string $login
  * @property string $password
- * @property string $slug
- * @property Departement $departement
+ * @property Departement[] $departements
  */
 class Personnel extends Model
 {
@@ -30,16 +28,9 @@ class Personnel extends Model
     protected $primaryKey = 'id_personnel';
 
     /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * @var array
      */
-    protected $fillable = ['id_departemnt', 'nom_personnel', 'login', 'password', 'slug'];
+    protected $fillable = ['nom', 'login', 'password'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -56,10 +47,10 @@ class Personnel extends Model
     protected $dateFormat = 'U';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function departement()
+    public function departements()
     {
-        return $this->belongsTo('App\Models\Departement', 'id_departemnt', 'id_departemnt');
+        return $this->belongsToMany('App\Models\Departement', 'appartenir', 'id_personnel', 'id_departement');
     }
 }

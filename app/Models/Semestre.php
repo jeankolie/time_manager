@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id_semestre
- * @property int $id_licence
- * @property string $nom_semestre
+ * @property string $nom
  * @property string $slug
- * @property Licence $licence
- * @property Enseigner[] $enseigners
+ * @property Licence[] $licences
+ * @property Enseigne[] $enseignes
  */
 class Semestre extends Model
 {
@@ -29,16 +28,9 @@ class Semestre extends Model
     protected $primaryKey = 'id_semestre';
 
     /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * @var array
      */
-    protected $fillable = ['id_licence', 'nom_semestre', 'slug'];
+    protected $fillable = ['nom', 'slug'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -55,18 +47,18 @@ class Semestre extends Model
     protected $dateFormat = 'U';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function licence()
+    public function licences()
     {
-        return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
+        return $this->belongsToMany('App\Models\Licence', 'comporte', 'id_semestre', 'id_licence');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function enseigners()
+    public function enseignes()
     {
-        return $this->hasMany('App\Models\Enseigner', 'id_semestre', 'id_semestre');
+        return $this->hasMany('App\Models\Enseigne', 'id_semestre', 'id_semestre');
     }
 }

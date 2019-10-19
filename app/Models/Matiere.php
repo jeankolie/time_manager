@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id_matiere
- * @property string $nom_matiere
+ * @property string $nom
  * @property string $slug
  * @property Departement[] $departements
- * @property Enseigner[] $enseigners
+ * @property Enseigne[] $enseignes
  */
 class Matiere extends Model
 {
@@ -28,16 +28,9 @@ class Matiere extends Model
     protected $primaryKey = 'id_matiere';
 
     /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * @var array
      */
-    protected $fillable = ['nom_matiere', 'slug'];
+    protected $fillable = ['nom', 'slug'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -58,14 +51,14 @@ class Matiere extends Model
      */
     public function departements()
     {
-        return $this->belongsToMany('App\Models\Departement', 'associer', 'id_matiere', 'id_departemnt');
+        return $this->belongsToMany('App\Models\Departement', 'associer', 'id_matiere', 'id_departement');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function enseigners()
+    public function enseignes()
     {
-        return $this->hasMany('App\Models\Enseigner', 'id_matiere', 'id_matiere');
+        return $this->hasMany('App\Models\Enseigne', 'id_matiere', 'id_matiere');
     }
 }

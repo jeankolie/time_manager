@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id_departement
  * @property int $id_licence
- * @property int $id_departemnt
- * @property Licence $licence
  * @property Departement $departement
+ * @property Licence $licence
  */
 class Sender extends Model
 {
@@ -41,16 +41,16 @@ class Sender extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function licence()
+    public function departement()
     {
-        return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
+        return $this->belongsTo('App\Models\Departement', 'id_departement', 'id_departement');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function departement()
+    public function licence()
     {
-        return $this->belongsTo('App\Models\Departement', 'id_departemnt', 'id_departemnt');
+        return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
     }
 }
