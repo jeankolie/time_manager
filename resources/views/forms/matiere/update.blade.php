@@ -58,6 +58,7 @@
                                            
 
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">MODIFIER</button>
+                                            <button type="reset" class="btn btn-primary waves-effect waves-light">Annuler</button>
 
                                         </form>
 

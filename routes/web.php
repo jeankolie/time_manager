@@ -17,3 +17,9 @@ Route::get('/', 'HomeController@index');
 Route::resource('matieres', 'MatiereController');
 
 Route::resource('departements', 'DepartementController');
+
+Route::resource('emplois', 'EmploisController');
+
+Route::resource('comptes', 'CompteController');
+
+Route::resource('personnels', 'PersonnelController');

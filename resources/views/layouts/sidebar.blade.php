@@ -42,6 +42,13 @@
                     <a href="javascript: void(0);">
                         <i class="fe-airplay"></i>
                         <span class="badge badge-success badge-pill float-right">5</span>
+                        <span> Personnel </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fe-airplay"></i>
+                        <span class="badge badge-success badge-pill float-right">6</span>
                         <span> Deconnexion </span>
                     </a>
                 </li>

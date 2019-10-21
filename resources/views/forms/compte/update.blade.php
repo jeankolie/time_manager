@@ -31,59 +31,51 @@
                                     <div class="card-body">
                                         <h4 class="header-title">Form row</h4>
                                         <p class="text-muted font-13">
-                                            You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
+                                            v class="alert alert-danger">{{ $errors->first() }}</div>
+                                        @endifYou may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
                                         </p>
+                                        @if ($errors->any())
+                                            <di
 
-                                        <form>
+                                        @if (\Session::has('success'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('success') }}
+                                            </div>
+                                        @endif
+
+                                       <form>
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4" class="col-form-label">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                                <div class="form-group col-md-5">
+                                                    <label for="inputEmail4" class="col-form-label">Nom du Departement</label>
+                                                    <input type="text" class="form-control" id="inputnom_departement" placeholder="Nom du departement">
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4" class="col-form-label">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                                <div class="form-group col-md-5">
+                                                    <label for="inputResponsable" class="col-form-label">Responsable</label>
+                                                    <input type="text" class="form-control" id="inputResponsable" placeholder="Responsable">
                                                 </div>
+                                                
                                             </div>
-
-                                            <div class="form-group">
-                                                <label for="inputAddress" class="col-form-label">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputAddress2" class="col-form-label">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                            </div>
-
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity" class="col-form-label">City</label>
-                                                    <input type="text" class="form-control" id="inputCity">
+                                                <div class="form-group col-md-3">
+                                                    <label for="inputLogin" class="col-form-label">Login</label>
+                                                    <input type="text" class="form-control" id="inputLogin" placeholder="Login">
                                                 </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState" class="col-form-label">State</label>
+                                                <div class="form-group col-md-3">
+                                                    <label for="inputPassword" class="col-form-label">Password</label>
+                                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label for="inputState" class="col-form-label">Nombre de departements</label>
                                                     <select id="inputState" class="form-control">
-                                                        <option>Choose</option>
-                                                        <option>Option 1</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
+                                                        <option>Choisissez</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip" class="col-form-label">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck11">
-                                                    <label class="custom-control-label" for="customCheck11">Check this custom checkbox</label>
-                                                </div>
-                                            </div>
-
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Sign in</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">MODIFIER</button>
+                                            <button type="reset" class="btn btn-primary waves-effect waves-light">Annuler</button>
 
                                         </form>
 
