@@ -11,7 +11,7 @@
                 <li class="menu-title">Navigation</li>
 
                 <li>
-                    <a href="javascript: void(0);">
+                    <a href="/departements">
                         <i class="fe-airplay"></i>
                         <span class="badge badge-success badge-pill float-right">1</span>
                         <span> Departement </span>

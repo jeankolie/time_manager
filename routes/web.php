@@ -15,3 +15,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::resource('matieres', 'MatiereController');
+
+Route::resource('departements', 'DepartementController');
