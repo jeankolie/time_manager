@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\{Matiere};
+use App\Http\Requests\{MatiereCreateRequest, MatiereUpdateRequest};
+use App\Gestion\{GestionMatiere};
 
 class HomeController extends Controller
 {
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('forms');
+        return view('matiere', [
+            'matieres' => Matiere::all()
+        ]);
     }
 }
