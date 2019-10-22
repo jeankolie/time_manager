@@ -34,27 +34,34 @@
                                             You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
                                         </p>
 
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">{{ $errors->first() }}</div>
+                                        @endif
+
+                                        @if (\Session::has('success'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('success') }}
+                                            </div>
+                                        @endif
                                         
-                                        <form>
+                                        <form action="{{ route('personnels.store', ['departement' => $departement->slug]) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="departement" value="{{ $departement->id_departement }}">
                                             <div class="form-row">
-                                                <div class="form-group col-md-5">
+                                                <div class="form-group col-md-6">
                                                     <label for="inputNom_personnel" class="col-form-label">Nom du Personnel</label>
-                                                    <input type="text" class="form-control" id="inputnom_departement" placeholder="Nom du personnel">
+                                                    <input type="text" class="form-control" name="nom" value="{{ old('nom') }}">
                                                 </div>
-                                                <div class="form-group col-md-5">
-                                                    <label for="inputFonction" class="col-form-label">Fonction</label>
-                                                    <input type="text" class="form-control" id="inputFonction" placeholder="Fonction">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputLogin" class="col-form-label">Login</label>
+                                                    <input type="text" class="form-control" name="login" value="{{ old('login') }}">
                                                 </div>
                                                 
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-group col-md-3">
-                                                    <label for="inputLogin" class="col-form-label">Login</label>
-                                                    <input type="text" class="form-control" id="inputLogin" placeholder="Login">
-                                                </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-6">
                                                     <label for="inputPassword" class="col-form-label">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                                    <input type="text" class="form-control" value="{{ time() }}" name="password">
                                                 </div> 
                                             </div>
 

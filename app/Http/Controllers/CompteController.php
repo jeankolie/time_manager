@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Compte};
+use App\Models\{Personnel};
 use App\Http\Requests\{CompteCreateRequest, CompteUpdateRequest};
 use App\Gestion\{GestionCompte};
 
@@ -17,7 +17,7 @@ class CompteController extends Controller
     public function index()
     {
         return view('compte', [
-            'comptes' => Compte::all()
+            'profil' => Personnel::first()
         ]);
     }
 

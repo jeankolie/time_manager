@@ -20,10 +20,10 @@
                                         <table class="table table-bordered mb-0">
                                             <thead>
                                             <tr>
-                                                <th>N°</th>
                                                 <th>Nom du departement</th>
                                                 <th>Responsable</th>
-                                                <th>Nombre de Licences</th>
+                                                <th class="text-right">Nombre de Licences</th>
+                                                <th class="text-right">Nombre de matieres</th>
                                                 <th>Personnels</th>
                                                 <th class="text-right">Actions</th>
                                             </tr>
@@ -31,7 +31,15 @@
                                             <tbody>
                                                 @foreach($departements as $departement)
                                                     <tr>
-                                                        <td>{{ $departement->nom_departement }}</td>
+                                                        <td>{{ $departement->nom }}</td>
+                                                        <td>{{ $departement->responsable }}</td>
+                                                        <td class="text-right">{{ $departement->licences->count() }}</td>
+                                                        <td class="text-right">{{ $departement->matieres->count() }}</td>
+                                                        <td>
+                                                            <a href="/personnel/departement/{{ $departement->slug }}" class="btn btn-warning">
+                                                                PERSONNELS ({{ $departement->personnels->count() }})
+                                                            </a>
+                                                        </td>
                                                         <td class="text-right">
                                                             <a href="{{ route('departements.edit', $departement->slug) }}" class="btn btn-info">Modifier</a>
                                                             <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger">Supprimer</a>
@@ -45,7 +53,7 @@
                                 </div> <!-- end card-box -->
                             </div> <!-- end col -->
         
-                                    </div> <!-- end table-responsive-->
+                        </div> <!-- end table-responsive-->
 
                                 </div> <!-- end card-box -->
                             </div> <!-- end col -->

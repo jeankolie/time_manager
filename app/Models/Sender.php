@@ -20,9 +20,18 @@ class Sender extends Model
     protected $table = 'sender';
 
     /**
+     * The primary key for the model.
+     * 
+     * @var string
+     */
+    protected $primaryKey = ['id_departement', 'id_licence'];
+
+    public $incrementing = false;
+
+    /**
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['id_departement', 'id_licence'];
 
     /**
      * Indicates if the model should be timestamped.

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Departement};
+use App\Models\{Departement, Matiere};
 use App\Http\Requests\{DepartementCreateRequest, DepartementUpdateRequest};
 use App\Gestion\{GestionDepartement};
 
@@ -28,7 +28,9 @@ class DepartementController extends Controller
      */
     public function create()
     {
-        return view('forms.departement.add');
+        return view('forms.departement.add', [
+            'matieres' => Matiere::all()
+        ]);
     }
 
     /**
@@ -39,6 +41,7 @@ class DepartementController extends Controller
      */
     public function store(DepartementCreateRequest $request, GestionDepartement $gestion)
     {
+
         $gestion->create($request);
 
         return back()->with('success', "Departement creer avec success");
@@ -64,7 +67,8 @@ class DepartementController extends Controller
     public function edit($id)
     {
          return view('forms.departement.update', [
-            'departement' => Departement::whereSlug($id)->first()
+            'departement' => Departement::whereSlug($id)->first(),
+            'matieres' => Matiere::all()
         ]);
     }
 
@@ -78,8 +82,7 @@ class DepartementController extends Controller
     public function update(DepartementUpdateRequest $request, GestionDepartement $gestion, $id)
     {
         $gestion->update($request);
-
-        return back()->with('success', "Departement modifier avec success");
+        return redirect('/departements');
     }
 
     /**

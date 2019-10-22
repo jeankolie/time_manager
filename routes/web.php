@@ -20,6 +20,8 @@ Route::resource('departements', 'DepartementController');
 
 Route::resource('emplois', 'EmploisController');
 
-Route::resource('comptes', 'CompteController');
+Route::resource('mon-compte', 'CompteController');
 
 Route::resource('personnels', 'PersonnelController');
+
+Route::get('/personnel/departement/{departement}', 'PersonnelController@show');

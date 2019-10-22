@@ -13,42 +13,32 @@
                 <li>
                     <a href="/departements">
                         <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">1</span>
+                        <span class="badge badge-success badge-pill float-right">{{ $dep }}</span>
                         <span> Departement </span>
                     </a>
                 </li>
                 <li>
                     <a href="/matieres">
                         <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">2</span>
+                        <span class="badge badge-success badge-pill float-right">{{ $mat }}</span>
                         <span> Matiere </span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">3</span>
                         <span> Emplois du temps </span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript: void(0);">
+                    <a href="/mon-compte">
                         <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">4</span>
                         <span> Mon compte </span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">5</span>
-                        <span> Personnel </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">6</span>
                         <span> Deconnexion </span>
                     </a>
                 </li>

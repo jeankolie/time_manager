@@ -31,41 +31,36 @@
                                     <div class="card-body">
                                         <h4 class="header-title">Form row</h4>
                                         <p class="text-muted font-13">
-                                            v class="alert alert-danger">{{ $errors->first() }}</div>
-                                        @endifYou may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
+                                            You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
                                         </p>
+
                                         @if ($errors->any())
-                                            <di
+                                            <div class="alert alert-danger">{{ $errors->first() }}</div>
+                                        @endif
 
                                         @if (\Session::has('success'))
                                             <div class="alert alert-success">
                                                 {{ Session::get('success') }}
                                             </div>
                                         @endif
-                                        <form>
+                                        
+                                        <form action="{{ route('personnels.update', $personnel->id_personnel) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="personnel" value="{{ $personnel->id_personnel }}">
                                             <div class="form-row">
-                                                <div class="form-group col-md-5">
-                                                    <label for="inputnom_personnel" class="col-form-label">Nom du Personnel</label>
-                                                    <input type="text" class="form-control" id="inputnom_departement" placeholder="Nom du departement">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputNom_personnel" class="col-form-label">Nom du Personnel</label>
+                                                    <input type="text" class="form-control" name="nom" value="{{ old('nom') ?? $personnel->nom }}">
                                                 </div>
-                                                <div class="form-group col-md-5">
-                                                    <label for="inputFonction" class="col-form-label">Fonction</label>
-                                                    <input type="text" class="form-control" id="inputFonction" placeholder="Fonction">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputLogin" class="col-form-label">Login</label>
+                                                    <input type="text" class="form-control" name="login" value="{{ old('login') ?? $personnel->login }}">
                                                 </div>
                                                 
                                             </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-3">
-                                                    <label for="inputLogin" class="col-form-label">Login</label>
-                                                    <input type="text" class="form-control" id="inputLogin" placeholder="Login">
-                                                </div>
-                                                <div class="form-group col-md-3">
-                                                    <label for="inputPassword" class="col-form-label">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                                </div>
-                                            </div>
-
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">MODIFIER</button>
+                                            
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">CREER LE PERSONNEL</button>
                                             <button type="reset" class="btn btn-primary waves-effect waves-light">Annuler</button>
 
                                         </form>

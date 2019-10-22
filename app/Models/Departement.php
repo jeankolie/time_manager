@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nom
  * @property string $responsable
  * @property string $slug
- * @property Personnel[] $personnels
  * @property Matiere[] $matieres
  * @property Enseigne[] $enseignes
+ * @property Personnel[] $personnels
  * @property Licence[] $licences
  */
 class Departement extends Model
@@ -52,14 +52,6 @@ class Departement extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function personnels()
-    {
-        return $this->belongsToMany('App\Models\Personnel', 'appartenir', 'id_departement', 'id_personnel');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function matieres()
     {
         return $this->belongsToMany('App\Models\Matiere', 'associer', 'id_departement', 'id_matiere');
@@ -71,6 +63,14 @@ class Departement extends Model
     public function enseignes()
     {
         return $this->hasMany('App\Models\Enseigne', 'id_departement', 'id_departement');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function personnels()
+    {
+        return $this->hasMany('App\Models\Personnel', 'id_departement', 'id_departement');
     }
 
     /**

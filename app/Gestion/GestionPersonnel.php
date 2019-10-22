@@ -7,6 +7,7 @@ namespace App\Gestion;
 
 use App\Models\{Personnel};
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class GestionPersonnel
 {
@@ -14,15 +15,17 @@ class GestionPersonnel
 	{
 		Personnel::create([
 			'nom' => $data->nom,
-			'slug' => Str::slug($data->nom, '-')
+			'login' => $data->login,
+			'password' => Hash::make($data->password),
+			'id_departement' => $data->departement
 		]);
 	}
 
-	public function update($data)
+	public function update($data, $id)
 	{
-		Personnel::where('id_personnel', '=', $data->id)->update([
+		Personnel::find($id)->update([
 			'nom' => $data->nom,
-			'slug' => Str::slug($data->nom, '-')
+			'login' => $data->login
 		]);
 	}
 }

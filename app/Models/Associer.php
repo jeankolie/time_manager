@@ -20,9 +20,18 @@ class Associer extends Model
     protected $table = 'associer';
 
     /**
+     * The primary key for the model.
+     * 
+     * @var string
+     */
+    protected $primaryKey = ['id_departement', 'id_matiere'];
+
+    public $incrementing = false;
+
+    /**
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['id_departement', 'id_matiere'];
 
     /**
      * Indicates if the model should be timestamped.

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Personnel};
+use App\Models\{Personnel, Departement};
 use App\Http\Requests\{PersonnelCreateRequest, PersonnelUpdateRequest};
 use App\Gestion\{GestionPersonnel};
 
@@ -26,9 +26,11 @@ class PersonnelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('forms.personnel.add');
+        return view('forms.personnel.add', [
+            'departement' => Departement::whereSlug($request->departement)->firstOrFail()
+        ]);
     }
 
     /**
@@ -52,7 +54,10 @@ class PersonnelController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('personnel', [
+            'personnels' => Departement::whereSlug($id)->firstOrFail()->personnels,
+            'departement' => Departement::whereSlug($id)->firstOrFail()
+        ]);
     }
 
     /**
@@ -64,7 +69,7 @@ class PersonnelController extends Controller
     public function edit($id)
     {
         return view('forms.personnel.update', [
-            'personnel' => Personnel::whereSlug($id)->first()
+            'personnel' => Personnel::whereLogin($id)->first()
         ]);
     }
 
@@ -77,9 +82,8 @@ class PersonnelController extends Controller
      */
     public function update(PersonnelUpdateRequest $request, GestionPersonnel $gestion, $id)
     {
-        $gestion->update($request);
-
-        return back()->with('success', "Personnel modifier avec success");
+        $gestion->update($request, $id);
+        return redirect('/departements');
     }
 
     /**

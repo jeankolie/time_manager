@@ -24,7 +24,10 @@ class DepartementUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => 'required|string|min:5|max:40|unique:departement,reponsable,login,password'.$this->id.',id_departement'
+            'nom' => 'required|string|min:5|max:40|unique:departement,nom,'.$this->id.',id_departement',
+            'responsable' => 'required|string|min:5|max:40',
+            'licence' => 'required',
+            'matiere' => 'required'
         ];
     }
 }
