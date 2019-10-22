@@ -23,9 +23,8 @@
                                                 <th>N°</th>
                                                 <th>Nom du departement</th>
                                                 <th>Responsable</th>
-                                                <th>Login</th>
-                                                <th>Password</th>
                                                 <th>Nombre de Licences</th>
+                                                <th>Personnels</th>
                                                 <th class="text-right">Actions</th>
                                             </tr>
                                             </thead>

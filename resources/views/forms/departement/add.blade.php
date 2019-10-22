@@ -36,26 +36,15 @@
 
                                         <form>
                                             <div class="form-row">
-                                                <div class="form-group col-md-5">
+                                                <div class="form-group col-md-4">
                                                     <label for="inputEmail4" class="col-form-label">Nom du Departement</label>
                                                     <input type="text" class="form-control" id="inputnom_departement" placeholder="Nom du departement">
                                                 </div>
-                                                <div class="form-group col-md-5">
+                                                <div class="form-group col-md-4">
                                                     <label for="inputResponsable" class="col-form-label">Responsable</label>
                                                     <input type="text" class="form-control" id="inputResponsable" placeholder="Responsable">
                                                 </div>
-                                                
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-3">
-                                                    <label for="inputLogin" class="col-form-label">Login</label>
-                                                    <input type="text" class="form-control" id="inputLogin" placeholder="Login">
-                                                </div>
-                                                <div class="form-group col-md-3">
-                                                    <label for="inputPassword" class="col-form-label">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                                </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-4">
                                                     <label for="inputState" class="col-form-label">Nombre de departements</label>
                                                     <select id="inputState" class="form-control">
                                                         <option>Choisissez</option>
@@ -64,6 +53,7 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            
 
                                             
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">CREER</button>
