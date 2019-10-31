@@ -10,7 +10,12 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card-box">
-                                    <a href="{{ route('departements.create') }}" class="btn btn-success mb-20">AJOUTER UN DEPARTEMENT</a>
+                                    @if (Auth::user()->priorite == 0)
+                                        <a href="{{ route('departements.create') }}" class="btn btn-success mb-20">
+                                            AJOUTER UN DEPARTEMENT
+                                        </a>
+                                    @endif
+                                        
                                     <h4 class="header-title">Bordered table</h4>
                                     <p class="sub-header">
                                         Add <code>.table-bordered</code> for borders on all sides of the table and cells.
@@ -24,8 +29,10 @@
                                                 <th>Responsable</th>
                                                 <th class="text-right">Nombre de Licences</th>
                                                 <th class="text-right">Nombre de matieres</th>
-                                                <th>Personnels</th>
-                                                <th class="text-right">Actions</th>
+                                                @if (Auth::user()->priorite != 2)
+                                                    <th>Personnels</th>
+                                                    <th class="text-right">Actions</th>
+                                                @endif
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -35,15 +42,18 @@
                                                         <td>{{ $departement->responsable }}</td>
                                                         <td class="text-right">{{ $departement->licences->count() }}</td>
                                                         <td class="text-right">{{ $departement->matieres->count() }}</td>
-                                                        <td>
-                                                            <a href="/personnel/departement/{{ $departement->slug }}" class="btn btn-warning">
-                                                                PERSONNELS ({{ $departement->personnels->count() }})
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <a href="{{ route('departements.edit', $departement->slug) }}" class="btn btn-info">Modifier</a>
-                                                            <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger">Supprimer</a>
-                                                        </td>
+                                                        @if (Auth::user()->priorite != 2)
+                                                            <td>
+                                                                <a href="/personnel/departement/{{ $departement->slug }}" class="btn btn-warning">
+                                                                    PERSONNELS ({{ $departement->personnels->count() }})
+                                                                </a>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <a href="{{ route('departements.edit', $departement->slug) }}" class="btn btn-info">Modifier</a>
+                                                                <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger">Supprimer</a>
+                                                            </td>
+                                                        @endif
+                                                            
                                                     </tr>
                                                 @endforeach
                                                 

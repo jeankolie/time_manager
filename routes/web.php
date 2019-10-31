@@ -12,16 +12,22 @@
 */
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', 'HomeController@index');
 
-Route::resource('departements', 'DepartementController');
+	Route::resource('departements', 'DepartementController');
 
-Route::resource('matieres', 'MatiereController');
+	Route::resource('matieres', 'MatiereController');
 
-Route::resource('emplois', 'EmploisController');
+	Route::resource('emplois', 'EmploisController');
 
-Route::resource('mon-compte', 'CompteController');
+	Route::resource('mon-compte', 'CompteController');
 
-Route::resource('personnels', 'PersonnelController');
+	Route::resource('personnels', 'PersonnelController');
 
-Route::get('/personnel/departement/{departement}', 'PersonnelController@show');
+	Route::get('/personnel/departement/{departement}', 'PersonnelController@show');
+
+	Route::get('/home', 'HomeController@index')->name('home');
+});
+
+	

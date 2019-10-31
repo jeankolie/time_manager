@@ -18,6 +18,13 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/etudiants">
+                        <i class="fe-airplay"></i>
+                        <span class="badge badge-success badge-pill float-right">{{ 0 }}</span>
+                        <span> Etudiants </span>
+                    </a>
+                </li>
+                <li>
                     <a href="/matieres">
                         <i class="fe-airplay"></i>
                         <span class="badge badge-success badge-pill float-right">{{ $mat }}</span>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\{Departement, Matiere};
 use App\Http\Requests\{DepartementCreateRequest, DepartementUpdateRequest};
 use App\Gestion\{GestionDepartement};
+use Illuminate\Support\Facades\Auth;
 
 class DepartementController extends Controller
 {
@@ -17,7 +18,7 @@ class DepartementController extends Controller
     public function index()
     {
         return view('departement', [
-            'departements' => Departement::all()
+            'departements' => (Auth::user()->priorite == 0) ? Departement::all() : [Auth::user()->departement]
         ]);
     }
 

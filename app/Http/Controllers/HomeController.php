@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Matiere};
-use App\Http\Requests\{MatiereCreateRequest, MatiereUpdateRequest};
-use App\Gestion\{GestionMatiere};
 
 class HomeController extends Controller
 {
@@ -16,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -26,8 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('matiere', [
-            'matieres' => Matiere::all()
-        ]);
+        return view('home');
     }
 }
