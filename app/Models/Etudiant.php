@@ -5,32 +5,33 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id_matiere
+ * @property int $id_etudiant
+ * @property string $matricule
+ * @property string $prenom
  * @property string $nom
- * @property string $slug
- * @property Departement[] $departements
- * @property Enseigner[] $enseigners
+ * @property string $password
+ * @property Inscrire[] $inscrires
  */
-class Matiere extends Model
+class Etudiant extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'matiere';
+    protected $table = 'etudiant';
 
     /**
      * The primary key for the model.
      * 
      * @var string
      */
-    protected $primaryKey = 'id_matiere';
+    protected $primaryKey = 'id_etudiant';
 
     /**
      * @var array
      */
-    protected $fillable = ['nom', 'slug'];
+    protected $fillable = ['matricule', 'prenom', 'nom', 'password'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -47,18 +48,10 @@ class Matiere extends Model
     protected $dateFormat = 'U';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function departements()
-    {
-        return $this->belongsToMany('App\Models\Departement', 'associer', 'id_matiere', 'id_departement');
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function enseigners()
+    public function inscrires()
     {
-        return $this->hasMany('App\Models\Enseigner', 'id_matiere', 'id_matiere');
+        return $this->hasMany('App\Models\Inscrire', 'id_etudiant', 'id_etudiant');
     }
 }

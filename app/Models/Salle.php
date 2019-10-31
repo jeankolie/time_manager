@@ -5,27 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id_matiere
+ * @property int $id_salle
  * @property string $nom
  * @property string $slug
- * @property Departement[] $departements
  * @property Enseigner[] $enseigners
  */
-class Matiere extends Model
+class Salle extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'matiere';
+    protected $table = 'salle';
 
     /**
      * The primary key for the model.
      * 
      * @var string
      */
-    protected $primaryKey = 'id_matiere';
+    protected $primaryKey = 'id_salle';
 
     /**
      * @var array
@@ -47,18 +46,10 @@ class Matiere extends Model
     protected $dateFormat = 'U';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function departements()
-    {
-        return $this->belongsToMany('App\Models\Departement', 'associer', 'id_matiere', 'id_departement');
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function enseigners()
     {
-        return $this->hasMany('App\Models\Enseigner', 'id_matiere', 'id_matiere');
+        return $this->hasMany('App\Models\Enseigner', 'id_salle', 'id_salle');
     }
 }

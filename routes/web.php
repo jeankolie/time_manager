@@ -14,9 +14,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('matieres', 'MatiereController');
-
 Route::resource('departements', 'DepartementController');
+
+Route::resource('matieres', 'MatiereController');
 
 Route::resource('emplois', 'EmploisController');
 

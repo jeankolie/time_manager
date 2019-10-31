@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $responsable
  * @property string $slug
  * @property Matiere[] $matieres
- * @property Enseigne[] $enseignes
+ * @property Enseigner[] $enseigners
+ * @property Inscrire[] $inscrires
  * @property Personnel[] $personnels
  * @property Licence[] $licences
  */
@@ -60,9 +61,17 @@ class Departement extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function enseignes()
+    public function enseigners()
     {
-        return $this->hasMany('App\Models\Enseigne', 'id_departement', 'id_departement');
+        return $this->hasMany('App\Models\Enseigner', 'id_departement', 'id_departement');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function inscrires()
+    {
+        return $this->hasMany('App\Models\Inscrire', 'id_departement', 'id_departement');
     }
 
     /**

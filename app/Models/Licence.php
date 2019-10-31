@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_licence
  * @property string $nom
  * @property string $slug
- * @property Enseigne[] $enseignes
+ * @property Inscrire[] $inscrires
  * @property Semestre[] $semestres
  * @property Departement[] $departements
  */
@@ -50,9 +50,9 @@ class Licence extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function enseignes()
+    public function inscrires()
     {
-        return $this->hasMany('App\Models\Enseigne', 'id_licence', 'id_licence');
+        return $this->hasMany('App\Models\Inscrire', 'id_licence', 'id_licence');
     }
 
     /**
