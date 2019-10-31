@@ -5,33 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id_etudiant
  * @property int $id_departement
  * @property int $id_annee
- * @property int $id_matiere
- * @property int $id_semestre
  * @property int $id_licence
- * @property string $professeur
- * @property string $jour
- * @property string $intervale
+ * @property string $date_inscription
  * @property Annee $annee
  * @property Departement $departement
+ * @property Etudiant $etudiant
  * @property Licence $licence
- * @property Matiere $matiere
- * @property Semestre $semestre
  */
-class Enseigne extends Model
+class Inscrire extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'enseigne';
+    protected $table = 'inscrire';
 
     /**
      * @var array
      */
-    protected $fillable = ['professeur', 'jour', 'intervale'];
+    protected $fillable = ['date_inscription'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -66,24 +62,16 @@ class Enseigne extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function etudiant()
+    {
+        return $this->belongsTo('App\Models\Etudiant', 'id_etudiant', 'id_etudiant');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function licence()
     {
         return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function matiere()
-    {
-        return $this->belongsTo('App\Models\Matiere', 'id_matiere', 'id_matiere');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function semestre()
-    {
-        return $this->belongsTo('App\Models\Semestre', 'id_semestre', 'id_semestre');
     }
 }

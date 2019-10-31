@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id_annee
  * @property string $nom
- * @property Enseigne[] $enseignes
+ * @property Enseigner[] $enseigners
+ * @property Inscrire[] $inscrires
  */
 class Annee extends Model
 {
@@ -47,8 +48,16 @@ class Annee extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function enseignes()
+    public function enseigners()
     {
-        return $this->hasMany('App\Models\Enseigne', 'id_annee', 'id_annee');
+        return $this->hasMany('App\Models\Enseigner', 'id_annee', 'id_annee');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function inscrires()
+    {
+        return $this->hasMany('App\Models\Inscrire', 'id_annee', 'id_annee');
     }
 }

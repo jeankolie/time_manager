@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id_departement
  * @property int $id_matiere
- * @property int $id_departemnt
  * @property int $id_semestre
+ * @property int $id_salle
  * @property int $id_annee
- * @property int $id_licence
  * @property string $professeur
  * @property string $jour
  * @property string $intervale
- * @property Matiere $matiere
- * @property Departement $departement
- * @property Semestre $semestre
  * @property Annee $annee
- * @property Licence $licence
+ * @property Departement $departement
+ * @property Matiere $matiere
+ * @property Salle $salle
+ * @property Semestre $semestre
  */
 class Enseigner extends Model
 {
@@ -50,30 +50,6 @@ class Enseigner extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function matiere()
-    {
-        return $this->belongsTo('App\Models\Matiere', 'id_matiere', 'id_matiere');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function departement()
-    {
-        return $this->belongsTo('App\Models\Departement', 'id_departemnt', 'id_departemnt');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function semestre()
-    {
-        return $this->belongsTo('App\Models\Semestre', 'id_semestre', 'id_semestre');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function annee()
     {
         return $this->belongsTo('App\Models\Annee', 'id_annee', 'id_annee');
@@ -82,8 +58,32 @@ class Enseigner extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function licence()
+    public function departement()
     {
-        return $this->belongsTo('App\Models\Licence', 'id_licence', 'id_licence');
+        return $this->belongsTo('App\Models\Departement', 'id_departement', 'id_departement');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function matiere()
+    {
+        return $this->belongsTo('App\Models\Matiere', 'id_matiere', 'id_matiere');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function salle()
+    {
+        return $this->belongsTo('App\Models\Salle', 'id_salle', 'id_salle');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function semestre()
+    {
+        return $this->belongsTo('App\Models\Semestre', 'id_semestre', 'id_semestre');
     }
 }
