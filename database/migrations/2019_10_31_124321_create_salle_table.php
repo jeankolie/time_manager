@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSemestreTable extends Migration {
+class CreateSalleTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateSemestreTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('semestre', function(Blueprint $table)
+		Schema::create('salle', function(Blueprint $table)
 		{
-			$table->integer('id_semestre', true);
-			$table->string('nom', 50);
-			$table->string('slug', 50);
+			$table->integer('id_salle', true);
+			$table->string('nom', 15);
+			$table->string('slug', 25);
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateSemestreTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('semestre');
+		Schema::drop('salle');
 	}
 
 }
