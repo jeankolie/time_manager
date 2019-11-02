@@ -25,9 +25,24 @@ class CompteUpdateRequest extends FormRequest
     public function rules()
     {
         $id = Auth::user()->id_personnel;
+
+        if ($this->operation == 'compte') {
+            return [
+                'login' => 'required|string|min:5|max:40|unique:personnel,login,'.$id.',id_personnel',
+                'nom' => 'required|string|min:2'
+            ];
+        }else{
+            return [
+                'old_password' => 'required',
+                'password' => 'required|confirmed|min:6'
+            ];
+        }  
+    }
+
+    public function messages()
+    {
         return [
-            'login' => 'required|string|min:5|max:40|unique:personnel,login,'.$id.',id_personnel',
-            'nom' => 'required|string|min:2'
+            'old_password.required' => 'Vous devez saisir votre ancien mot de passe'
         ];
     }
 }

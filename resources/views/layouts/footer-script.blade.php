@@ -16,6 +16,19 @@
 				    }
 				});
 
+				$('.btn-logout').on('click', function (e) {
+					e.preventDefault();
+					var link = $(e.target).attr('href');
+					$.ajax({
+						url: link,
+						method: "POST",
+						dataType: "text",
+						success: function (data) {
+							document.location.reload(true);
+						}
+					});
+				});
+
         		$(".btn-delete").on('click', function (e) {
         			e.preventDefault();
         			var link = $(e.target).attr('href');

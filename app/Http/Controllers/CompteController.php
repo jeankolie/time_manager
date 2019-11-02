@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\{Personnel};
 use App\Http\Requests\{CompteCreateRequest, CompteUpdateRequest};
 use App\Gestion\{GestionCompte};
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class CompteController extends Controller
 {
@@ -76,6 +78,11 @@ class CompteController extends Controller
      */
     public function update(CompteUpdateRequest $request, GestionCompte $gestion, $id)
     {
+        if ($request->operation == 'password') {
+            if (!Hash::check($request->old_password, Auth::user()->password)) {
+                return back()->with('success', "Ancien mot de passe invalide");
+            }
+        }
         $gestion->update($request, $id);
         return back()->with('success', "Compte modifier avec success");
     }
