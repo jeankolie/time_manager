@@ -5,24 +5,22 @@
 
 namespace App\Gestion;
 
-use App\Models\{Compte};
+use App\Models\{Personnel};
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class GestionCompte
 {
 	public function create($data)
 	{
-		Compte::create([
-			'nom' => $data->nom,
-			'slug' => Str::slug($data->nom, '-')
-		]);
+		
 	}
 
-	public function update($data)
+	public function update($data, $id)
 	{
-		Compte::where('id_compte', '=', $data->id)->update([
+		Personnel::find($id)->update([
 			'nom' => $data->nom,
-			'slug' => Str::slug($data->nom, '-')
+			'login' => $data->login
 		]);
 	}
 }

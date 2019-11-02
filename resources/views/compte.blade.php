@@ -54,6 +54,16 @@
 
                             <div class="col-lg-8 col-xl-8">
                                 <div class="card-box">
+
+                                    @if ($errors->any())
+                                            <div class="alert alert-danger">{{ $errors->first() }}</div>
+                                        @endif
+
+                                        @if (\Session::has('success'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('success') }}
+                                            </div>
+                                        @endif
                                     <ul class="nav nav-pills navtab-bg nav-justified">
                                         <li class="nav-item">
                                             <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link active">
@@ -73,13 +83,13 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="firstname">Nom complet:</label>
-                                                            <input type="text" class="form-control" id="firstname" placeholder="Enter first name" value="{{ $profil->nom }}">
+                                                            <input type="text" name="nom" class="form-control" id="firstname" placeholder="Enter first name" value="{{ $profil->nom }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="lastname">Login:</label>
-                                                            <input type="text" class="form-control" id="lastname" placeholder="Enter last name" value="{{ $profil->login }}">
+                                                            <input type="text" class="form-control" id="lastname" placeholder="Enter last name" name="login" value="{{ $profil->login }}">
                                                         </div>
                                                     </div> <!-- end col -->
                                                 </div> <!-- end row -->

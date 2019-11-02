@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CompteUpdateRequest extends FormRequest
 {
@@ -23,8 +24,10 @@ class CompteUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $id = Auth::user()->id_personnel;
         return [
-            'nom','login' => 'required|string|min:5|max:40|unique:annee,nom,'.$this->id.',id_personnel'
+            'login' => 'required|string|min:5|max:40|unique:personnel,login,'.$id.',id_personnel',
+            'nom' => 'required|string|min:2'
         ];
     }
 }

@@ -40,7 +40,6 @@ class CompteController extends Controller
     public function store(CompteCreateRequest $request, GestionCompte $gestion)
     {
         $gestion->create($request);
-
         return back()->with('success', "Compte creer avec success");
     }
 
@@ -77,8 +76,7 @@ class CompteController extends Controller
      */
     public function update(CompteUpdateRequest $request, GestionCompte $gestion, $id)
     {
-        $gestion->update($request);
-
+        $gestion->update($request, $id);
         return back()->with('success', "Compte modifier avec success");
     }
 
