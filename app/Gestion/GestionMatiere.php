@@ -25,4 +25,9 @@ class GestionMatiere
 			'slug' => Str::slug($data->nom, '-')
 		]);
 	}
+
+	public function delete($slug)
+	{
+		Matiere::whereSlug($slug)->delete();
+	}
 }

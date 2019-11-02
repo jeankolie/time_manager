@@ -88,8 +88,9 @@ class MatiereController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(GestionMatiere $gestion, $id)
     {
-        //
+        $gestion->delete($id);
+        return response()->json(['statut' => true]);
     }
 }

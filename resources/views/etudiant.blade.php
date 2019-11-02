@@ -39,7 +39,7 @@
                                                             <td>{{ $insctiption->etudiant->prenom }}</td>
                                                             <td class="text-right">
                                                                 <a href="{{ route('etudiants.edit', $insctiption->etudiant->matricule) }}" class="btn btn-info">Modifier</a>
-                                                                <a href="{{ route('etudiants.destroy', $insctiption->etudiant->matricule) }}" class="btn btn-danger">Supprimer</a>
+                                                                <a href="{{ route('etudiants.destroy', $insctiption->etudiant->matricule) }}" class="btn btn-danger btn-delete">Supprimer</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -64,5 +64,7 @@
                         <!--- end row -->        
                         
                     </div> <!-- container -->
+
+                    <input type="hidden" name="message-suppression" value="Voulez vous supprimer cette inscription ?">
 
 @endsection
