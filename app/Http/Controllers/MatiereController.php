@@ -79,7 +79,7 @@ class MatiereController extends Controller
     {
         $gestion->update($request);
 
-        return back()->with('success', "Matiere modifier avec success");
+        return redirect('/matieres');
     }
 
     /**

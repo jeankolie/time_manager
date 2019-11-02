@@ -50,7 +50,7 @@
                                                             </td>
                                                             <td class="text-right">
                                                                 <a href="{{ route('departements.edit', $departement->slug) }}" class="btn btn-info">Modifier</a>
-                                                                <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger">Supprimer</a>
+                                                                <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger btn-delete">Supprimer</a>
                                                             </td>
                                                         @endif
                                                             
@@ -71,5 +71,6 @@
                         <!--- end row -->        
                         
                     </div> <!-- container -->
+                    <input type="hidden" name="message-suppression" value="Voulez vous supprimer ce Departement ?">
 
 @endsection

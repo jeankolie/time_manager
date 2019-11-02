@@ -25,4 +25,9 @@ class GestionAnnee
 			'slug' => Str::slug($data->nom, '-')
 		]);
 	}
+
+	public function delete($slug)
+	{
+		Annee::find($slug)->delete();
+	}
 }

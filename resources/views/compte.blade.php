@@ -65,7 +65,9 @@
     
 
                                         <div class="tab-pane show active" id="settings">
-                                            <form>
+                                            <form  method="POST" action="{{ route('mon-compte.update', Auth::user()->id_personnel) }}">
+                                                @csrf
+                                                @method('PUT')
                                                 <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle mr-1"></i> Information personnelle</h5>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -89,6 +91,7 @@
                                             </form>
 
                                             <form>
+                                               
                                                 <h5 class="mb-4 text-uppercase"><i class="mdi mdi-lock mr-1"></i> Modifier mon mot de passe</h5>
                                                 <div class="row">
                                                     <div class="col-md-6">

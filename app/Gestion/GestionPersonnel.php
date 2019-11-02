@@ -28,4 +28,9 @@ class GestionPersonnel
 			'login' => $data->login
 		]);
 	}
+
+	public function delete($slug)
+	{
+		Personnel::whereLogin($slug)->delete();
+	}
 }

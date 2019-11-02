@@ -95,7 +95,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">CREER</button>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">MODIFIER</button>
                                                     <button type="reset" class="btn btn-primary waves-effect waves-light">Annuler</button>
                                                 </div>
                                             </div>

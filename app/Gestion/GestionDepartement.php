@@ -75,4 +75,9 @@ class GestionDepartement
 			]);
 		}
 	}
+
+	public function delete($slug)
+	{
+		Departement::whereSlug($slug)->delete();
+	}
 }
