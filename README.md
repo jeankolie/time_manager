@@ -6,4 +6,4 @@ php artisan krlove:generate:model User --table-name=user
 
 
 si tu as des errerur de classes introuvable Executer: composer dump-autoload 
-demarrer le serveur: php artisan serve
+demarrer le serveur: php artisan serve dgd
