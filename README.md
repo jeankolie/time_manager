@@ -1,7 +1,7 @@
 Creation du controlleur: php artisan make:controller NomController --resource
 Creation du gestionnaire: GestionNom dans app/Gestion
-Creation du request pour la creation: php artisan make:DepartementrequestCreateRequest
-Creation du request pour la modification: php artisan make:requestUpdateRequest
+Creation du request pour la creation: php artisan make:request DepartementCreateRequest
+Creation du request pour la modification: php artisan make:request DepartementUpdateRequest
 php artisan krlove:generate:model User --table-name=user
 
 

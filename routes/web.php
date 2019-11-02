@@ -19,11 +19,15 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::resource('matieres', 'MatiereController');
 
+	Route::resource('annees', 'AnneeController');
+
 	Route::resource('emplois', 'EmploisController');
 
 	Route::resource('mon-compte', 'CompteController');
 
 	Route::resource('personnels', 'PersonnelController');
+
+	Route::resource('etudiants', 'EtudiantController');
 
 	Route::get('/personnel/departement/{departement}', 'PersonnelController@show');
 

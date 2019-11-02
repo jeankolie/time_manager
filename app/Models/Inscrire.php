@@ -27,7 +27,7 @@ class Inscrire extends Model
     /**
      * @var array
      */
-    protected $fillable = ['date_inscription'];
+    protected $fillable = ['id_etudiant', 'id_departement', 'id_annee', 'id_licence', 'date_inscription'];
 
     /**
      * Indicates if the model should be timestamped.

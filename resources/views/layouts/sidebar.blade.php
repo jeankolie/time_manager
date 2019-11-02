@@ -20,7 +20,7 @@
                 <li>
                     <a href="/etudiants">
                         <i class="fe-airplay"></i>
-                        <span class="badge badge-success badge-pill float-right">{{ 0 }}</span>
+                        <span class="badge badge-success badge-pill float-right">{{ $etu }}</span>
                         <span> Etudiants </span>
                     </a>
                 </li>
@@ -29,6 +29,13 @@
                         <i class="fe-airplay"></i>
                         <span class="badge badge-success badge-pill float-right">{{ $mat }}</span>
                         <span> Matiere </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/annees">
+                        <i class="fe-airplay"></i>
+                        <span class="badge badge-success badge-pill float-right">{{ $an }}</span>
+                        <span> Annee Scolaire </span>
                     </a>
                 </li>
                 <li>
