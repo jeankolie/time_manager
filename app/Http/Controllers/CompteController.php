@@ -19,7 +19,7 @@ class CompteController extends Controller
     public function index()
     {
         return view('compte', [
-            'profil' => Personnel::first()
+            'profil' => Auth::user()
         ]);
     }
 

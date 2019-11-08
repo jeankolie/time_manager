@@ -28,12 +28,12 @@
                                 <form action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div class="form-group mb-3">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" placeholder="Enter your email" name="login">
+                                        <label for="emailaddress">Login:</label>
+                                        <input class="form-control" type="text" id="emailaddress" placeholder="Enter your email" name="login">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="password">Password</label>
+                                        <label for="password">Password:</label>
                                         <input class="form-control" type="password" id="password" placeholder="Enter your password" name="password">
                                     </div>
 
