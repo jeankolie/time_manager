@@ -34,7 +34,7 @@ class Personnel extends Authenticatable
     /**
      * @var array
      */
-    protected $fillable = ['id_departement', 'nom', 'login', 'password'];
+    protected $fillable = ['id_departement', 'nom', 'login', 'password', 'priorite'];
 
     /**
      * Indicates if the model should be timestamped.

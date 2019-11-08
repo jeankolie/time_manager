@@ -21,8 +21,7 @@ class GestionAnnee
 	public function update($data)
 	{
 		Annee::where('id_annee', '=', $data->id)->update([
-			'nom' => $data->nom,
-			'slug' => Str::slug($data->nom, '-')
+			'nom' => $data->nom
 		]);
 	}
 

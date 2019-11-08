@@ -17,7 +17,7 @@
                                             <li class="breadcrumb-item active">Basic</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Liste des matieres</h4>
+                                    <h4 class="page-title">Liste des annees scolaires</h4>
                                 </div>
                             </div>
                         </div>     
@@ -28,7 +28,7 @@
                             <div class="col-lg-12">
                                 <div class="card-box">
                                     <a href="{{ route('annees.create') }}" class="btn btn-success mb-20">AJOUTER UNE ANNEE</a>
-        
+                                    <br><br>
                                     <div class="table-responsive">
                                         <table class="table table-bordered mb-0">
                                             <thead>

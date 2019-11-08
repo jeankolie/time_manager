@@ -32,7 +32,7 @@
                                         <h4 class="header-title">Form row</h4>
                                         <p class="text-muted font-13">
                                             v class="alert alert-danger">{{ $errors->first() }}</div>
-                                        @endifYou may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
+                                        @endifYou may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>
                                         </p>
                                         @if ($errors->any())
                                             <di

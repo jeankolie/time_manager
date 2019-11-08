@@ -8,16 +8,25 @@ namespace App\Gestion;
 use App\Models\{Personnel};
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class GestionPersonnel
 {
 	public function create($data)
 	{
+
+		$priorite=2;
+		if (Auth::user()->priorite == 0) {
+			$priorite = 1;
+		}
+
+
 		Personnel::create([
 			'nom' => $data->nom,
 			'login' => $data->login,
 			'password' => Hash::make($data->password),
-			'id_departement' => $data->departement
+			'id_departement' => $data->departement,
+			'priorite' => $priorite
 		]);
 	}
 

@@ -105,12 +105,12 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="hidden" name="operation" value="password">
-                                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-lock mr-1"></i> Modifier mon mot de passe</h5>
+                                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-lock mr-1"></i> Modifier votre mot de passe</h5>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="firstname">Ancien mot de passe:</label>
-                                                            <input type="password" class="form-control" id="firstname" name="old_password" placeholder="Enter first name">
+                                                            <input type="password" class="form-control" id="firstname" name="old_password" placeholder="Entrez votre ancien mot de pass">
                                                         </div>
                                                     </div>
                                                     
@@ -119,13 +119,13 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="lastname">Nouveau mot de passe:</label>
-                                                            <input type="password" class="form-control" name="password" id="lastname" placeholder="Enter last name">
+                                                            <input type="password" class="form-control" name="password" id="lastname" placeholder="Entrer votre nouveau mot de pass">
                                                         </div>
                                                     </div> <!-- end col -->
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="lastname">Confirmer nouveau mot de passe:</label>
-                                                            <input type="password" class="form-control" id="lastname" name="password_confirmation" placeholder="Enter last name">
+                                                            <input type="password" class="form-control" id="lastname" name="password_confirmation" placeholder="Confirmez votre nouveau mot de pass">
                                                         </div>
                                                     </div> <!-- end col -->
                                                 </div> <!-- end row -->
