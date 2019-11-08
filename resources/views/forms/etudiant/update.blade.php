@@ -29,9 +29,9 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Form row</h4>
+                                        <h4 class="header-title">Modifier l'etudiant dans les champs ci-apres</h4>
                                         <p class="text-muted font-13">
-                                            You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
+                                            You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>
                                         </p>
 
                                         @if ($errors->any())

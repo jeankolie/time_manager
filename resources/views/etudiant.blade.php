@@ -14,7 +14,7 @@
                                             AJOUTER UN ETUDIANT
                                         </a>
                                         
-                                    <h4 class="header-title">Bordered table</h4>
+                                    <h4 class="header-title">Ajouer un etudiant en remplicant les champs ci-apres</h4>
                                     <p class="sub-header">
                                         Add <code>.table-bordered</code> for borders on all sides of the table and cells.
                                     </p>

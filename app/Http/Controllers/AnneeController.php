@@ -63,8 +63,9 @@ class AnneeController extends Controller
      */
     public function edit($id)
     {
+
         return view('forms.annee.update', [
-            'annee' => Annee::whereSlug($id)->first()
+            'annee' => Annee::where('id_annee', $id)->first()
         ]);
     }
 
@@ -75,9 +76,11 @@ class AnneeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnneeUpdateRequest $request, GestionAnnee $gestion, $id)
     {
-        //
+        $gestion->update($request);
+
+        return redirect('/annees');
     }
 
     /**
