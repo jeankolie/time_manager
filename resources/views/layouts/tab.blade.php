@@ -15,7 +15,7 @@
           <div class="tab-pane {{ ($key == 0) ? 'show active' : '' }}" id="{{ $licence->slug }}">
               @foreach($licence->semestres as $semestre)
                 <h4>{{ $semestre->nom }}</br>
-                @include('layouts.table')
+                @include('layouts.table', ['emplois' => $semestre->enseigners->where('id_annee', $annee)])
               @endforeach
           </div>
         @endforeach

@@ -31,7 +31,7 @@ class Enseigner extends Model
     /**
      * @var array
      */
-    protected $fillable = ['professeur', 'jour', 'intervale'];
+    protected $fillable = ['professeur', 'jour', 'intervale', 'id_departement', 'id_annee', 'id_semestre', 'id_salle', 'id_matiere'];
 
     /**
      * Indicates if the model should be timestamped.

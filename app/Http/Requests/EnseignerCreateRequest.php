@@ -13,7 +13,7 @@ class EnseignerCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class EnseignerCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'professeur' => 'required|max:100|string|min:2'
         ];
     }
 }

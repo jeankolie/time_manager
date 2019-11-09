@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Models\{Emplois};
-use App\Http\Requests\{EmploisCreateRequest, EmploisUpdateRequest};
-use App\Gestion\{GestionMatiere};
+use App\Models\{Salle, Annee};
+use App\Http\Requests\{EnseignerCreateRequest, EnseignerUpdateRequest};
+use App\Gestion\{GestionEmplois};
 
 class EmploisController extends Controller
 {
@@ -17,7 +17,9 @@ class EmploisController extends Controller
     public function index()
     {
         return view('emplois', [
-            //'emplois' => Emplois::all()
+            'annee' => Annee::orderBy('id_annee', 'desc')->take(1)->first()->id_annee,
+            'intervales' => ['8h-11h', '11h-14h', '14h-17h', '17h-20h'],
+            'jours' => ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
         ]);
     }
 
@@ -28,7 +30,9 @@ class EmploisController extends Controller
      */
     public function create(Request $request)
     {
-      return view('forms.emplois.add');
+      return view('forms.emplois.add', [
+            'salles' => Salle::all()
+      ]);
 
     }
 
@@ -38,10 +42,9 @@ class EmploisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EmploisCreateRequest $request, GestionEmplois $gestion)
+    public function store(EnseignerCreateRequest $request, GestionEmplois $gestion)
     {
         $gestion->create($request);
-
         return back()->with('success', "Emplois creer avec success");
     }
 
@@ -89,8 +92,9 @@ class EmploisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, GestionEmplois $gestion, $id)
     {
-        //
+        $gestion->delete($request);
+        return response()->json(['statut' => true]);
     }
 }
