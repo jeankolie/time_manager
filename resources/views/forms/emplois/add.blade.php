@@ -31,12 +31,22 @@
                                         <p class="text-muted font-13">
                                             You may also swap <code class="highlighter-rouge">.row</code> for <code class="highlighter-rouge">.form-row</code>, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.
                                         </p>
-                                        <form>
+
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">{{ $errors->first() }}</div>
+                                        @endif
+
+                                        @if (\Session::has('success'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('success') }}
+                                            </div>
+                                        @endif
+                                        <form method="POST" action="{{ route('emplois.store') }}">
+                                            @csrf
                                             <div class="form-row">
                                               <div class="form-group col-md-3">
                                                   <label for="inputState" class="col-form-label">Jour</label>
                                                   <select id="inputState" class="form-control" name="jour">
-                                                      <option>Choisissez</option>
                                                       <option>Lundi</option>
                                                       <option>Mardi</option>
                                                       <option>Mercredi</option>
@@ -48,10 +58,9 @@
                                               <div class="form-group col-md-3">
                                                   <label for="inputState" class="col-form-label">Interval d'heure</label>
                                                     <select id="inputState" class="form-control" name="intervale">
-                                                        <option>Choisissez</option>
                                                         <option>8h-11h</option>
                                                         <option>11h-14h</option>
-                                                        <option>14h-17</option>
+                                                        <option>14h-17h</option>
                                                         <option>17h-20h</option>
                                                     </select>
                                               </div>
@@ -64,7 +73,7 @@
                                                     </select>
                                               </div>
                                               <div class="form-group col-md-3">
-                                                  <label for="inputState" class="col-form-label">Licence</label>
+                                                    <label for="inputState" class="col-form-label">Licence</label>
                                                     <select id="inputState" class="form-control" name="licence">
                                                         @foreach (Auth::user()->departement->licences as $licence)
                                                           <option value="{{ $licence->id_licence }}">{{ $licence->nom }}</option>
@@ -75,13 +84,16 @@
                                             <div class="form-row">
                                               <div class="form-group col-md-4">
                                                   <label for="inputState" class="col-form-label">semestre</label>
-                                                    <select
-                                                      id="inputState" class="form-control" name="semestre">
+                                                    <select class="form-control" name="semestre">
                                                     </select>
                                               </div>
                                               <div class="form-group col-md-4">
                                                   <label for="inputCity" class="col-form-label">Salle</label>
-                                                  <input type="text" class="form-control" name="salle">
+                                                    <select id="inputState" class="form-control" name="salle">
+                                                        @foreach ($salles as $salle)
+                                                          <option value="{{ $salle->id_salle }}">{{ $salle->nom }}</option>
+                                                        @endforeach
+                                                    </select>
                                               </div>
                                               <div class="form-group col-md-4">
                                                   <label for="inputCity" class="col-form-label">Professeur</label>
