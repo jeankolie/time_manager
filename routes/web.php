@@ -23,6 +23,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::resource('emplois', 'EmploisController')->middleware('dep');
 
+Route::resource('salles', 'SalleController')->middleware('sal');
+
 	Route::resource('mon-compte', 'CompteController');
 
 	Route::resource('personnels', 'PersonnelController');

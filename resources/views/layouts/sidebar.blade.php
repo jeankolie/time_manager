@@ -44,6 +44,13 @@
                         </a>
                     </li>
                     <li>
+                       <a href="/salles">
+                           <i class="fe-airplay"></i>
+                           <span class="badge badge-success badge-pill float-right">{{ $sal}}</span>
+                           <span> Salle de classe </span>
+                       </a>
+                   </li>
+                    <li>
                         <a href="/emplois">
                             <i class="fe-airplay"></i>
                             <span> Emplois du temps </span>

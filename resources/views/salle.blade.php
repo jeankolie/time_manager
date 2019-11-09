@@ -17,7 +17,7 @@
                                             <li class="breadcrumb-item active">Basic</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Liste des annees scolaires</h4>
+                                    <h4 class="page-title">Liste des salles</h4>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card-box">
-                                    <a href="{{ route('annees.create') }}" class="btn btn-success mb-20">AJOUTER UNE ANNEE</a>
+                                    <a href="{{ route('salles.create') }}" class="btn btn-success mb-20">AJOUTER UNE SALLE</a>
                                     <br><br>
                                     <div class="table-responsive">
                                         <table class="table table-bordered mb-0">
@@ -38,12 +38,12 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($annees as $annee)
+                                                @foreach($salles as $salle)
                                                     <tr>
-                                                        <td>{{ $annee->nom }}</td>
+                                                        <td>{{ $salle->nom }}</td>
                                                         <td class="text-right">
-                                                            <a href="{{ route('annees.edit', $annee->id_annee) }}" class="btn btn-info">Modifier</a>
-                                                            <a href="{{ route('annees.destroy', $annee->id_annee) }}" class="btn btn-danger btn-delete">Supprimer</a>
+                                                            <a href="{{ route('salles.edit', $salle->id_salle) }}" class="btn btn-info">Modifier</a>
+                                                            <a href="{{ route('salles.destroy', $salle->id_salle) }}" class="btn btn-danger btn-delete">Supprimer</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -56,6 +56,6 @@
                         <!--- end row -->
 
                     </div> <!-- container -->
-                    <input type="hidden" name="message-suppression" value="Voulez vous supprimer cette Annee scolaire ?">
+                    <input type="hidden" name="message-suppression" value="Voulez vous supprimer cette Salle ?">
 
 @endsection
