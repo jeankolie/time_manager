@@ -15,7 +15,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index');
 
-	Route::resource('departements', 'DepartementController')->middleware('admin');
+	Route::resource('departements', 'DepartementController');
 
 	Route::resource('matieres', 'MatiereController')->middleware('admin');
 
@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/personnel/departement/{departement}', 'PersonnelController@show');
 
 	Route::get('/home', 'HomeController@index')->name('home');
-});
 
-	
+
+  Route::get('/licence/{licence}/semestre', function($licence) {
+      return App\Models\Licence::find($licence)->semestres->toJson();
+  });
+
+});

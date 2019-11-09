@@ -40,7 +40,7 @@ class GestionPersonnel
 
 	public function delete($slug)
 	{
-		if (Auth::user()->login = $slug) {
+		if (Auth::user()->login == $slug) {
 			return;
 		}
 		Personnel::whereLogin($slug)->delete();

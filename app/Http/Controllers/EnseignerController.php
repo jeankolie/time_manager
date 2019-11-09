@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Models\{Emplois};
-use App\Http\Requests\{EmploisCreateRequest, EmploisUpdateRequest};
-use App\Gestion\{GestionMatiere};
 
-class EmploisController extends Controller
+class EnseignerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class EmploisController extends Controller
      */
     public function index()
     {
-        return view('emplois', [
-            //'emplois' => Emplois::all()
-        ]);
+        //
     }
 
     /**
@@ -26,10 +21,9 @@ class EmploisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-      return view('forms.emplois.add');
-
+        //
     }
 
     /**
@@ -38,11 +32,9 @@ class EmploisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EmploisCreateRequest $request, GestionEmplois $gestion)
+    public function store(Request $request)
     {
-        $gestion->create($request);
-
-        return back()->with('success', "Emplois creer avec success");
+        //
     }
 
     /**
@@ -64,9 +56,7 @@ class EmploisController extends Controller
      */
     public function edit($id)
     {
-        return view('forms.emplois.update', [
-            'emplois' => Emplois::whereSlug($id)->first()
-        ]);
+        //
     }
 
     /**
@@ -76,11 +66,9 @@ class EmploisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EmploiseUpdateRequest $request, GestionEmplois $gestion, $id)
+    public function update(Request $request, $id)
     {
-        $gestion->update($request);
-
-        return back()->with('success', "Emplois modifier avec success");
+        //
     }
 
     /**

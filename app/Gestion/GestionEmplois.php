@@ -1,12 +1,14 @@
 <?php
 /**
- * 
+ *
  */
 
 namespace App\Gestion;
 
 use App\Models\{Emplois};
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class GestionEmplois
 {

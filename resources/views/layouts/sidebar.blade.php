@@ -44,13 +44,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript: void(0);">
+                        <a href="/emplois">
                             <i class="fe-airplay"></i>
                             <span> Emplois du temps </span>
                         </a>
                     </li>
                 @endif
-                    
+
                 <li>
                     <a href="/mon-compte">
                         <i class="fe-airplay"></i>
