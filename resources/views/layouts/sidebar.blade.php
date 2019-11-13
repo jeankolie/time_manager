@@ -8,7 +8,6 @@
 
             <ul class="metismenu" id="side-menu">
 
-                <li class="menu-title">Navigation</li>
 
                 <li>
                     <a href="/departements">
@@ -46,7 +45,7 @@
                     <li>
                        <a href="/salles">
                            <i class="fe-airplay"></i>
-                           <span class="badge badge-success badge-pill float-right">{{ $sal}}</span>
+                           <span class="badge badge-success badge-pill float-right">{{ $sal }}</span>
                            <span> Salle de classe </span>
                        </a>
                    </li>
@@ -62,12 +61,6 @@
                     <a href="/mon-compte">
                         <i class="fe-airplay"></i>
                         <span> Mon compte </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="fe-airplay"></i>
-                        <span> Deconnexion </span>
                     </a>
                 </li>
 

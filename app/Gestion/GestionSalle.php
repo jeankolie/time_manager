@@ -5,7 +5,7 @@
 
 namespace App\Gestion;
 
-use App\Models\{Annee};
+use App\Models\{Salle};
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;

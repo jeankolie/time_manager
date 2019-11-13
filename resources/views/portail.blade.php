@@ -18,7 +18,7 @@
                                     <a href="index">
                                         <span><h2 style="color: gray">Time manager</h2></span>
                                     </a>
-                                    <p class="text-muted mb-4 mt-3">Entrer votre identifiant et mot de pass.</p>
+                                    <p class="text-muted mb-4 mt-3">Entrer vos identifiants.</p>
                                 </div>
 
                                 @if ($errors->any())
@@ -29,7 +29,7 @@
                                     @csrf
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">Login:</label>
-                                        <input class="form-control" type="text" id="emailaddress" placeholder="Entrer votre identifiant" name="login">
+                                        <input class="form-control" type="text" id="emailaddress" placeholder="Entrer votre matricule" name="matricule">
                                     </div>
 
                                     <div class="form-group mb-3">

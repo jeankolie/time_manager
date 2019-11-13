@@ -99,4 +99,9 @@ class EtudiantController extends Controller
         $gestion->delete($id);
         return response()->json(['statut' => true]);
     }
+
+    public function portail()
+    {
+        return view('portail');
+    }
 }
