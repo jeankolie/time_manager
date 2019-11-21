@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{Etudiant, Annee};
-use App\Http\Requests\{EtudiantCreateRequest, EtudiantUpdateRequest};
+use App\Http\Requests\{EtudiantCreateRequest, EtudiantUpdateRequest, EtudiantLoginRequest};
 use App\Gestion\{GestionEtudiant};
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EtudiantController extends Controller
 {
@@ -103,5 +104,17 @@ class EtudiantController extends Controller
     public function portail()
     {
         return view('portail');
+    }
+
+    public function login(EtudiantLoginRequest $request)
+    {
+        $password = Hash::make($request->password);
+        if (!Etudiant::whereMatricule($request->matricule)->wherePassword($password)->exists()) {
+            return back()->withInput()->withErrors(['Matricule ou mot de passe invalide']);
+        }
+
+        $etudiant = Etudiant::whereMatricule($request->matricule)->first();
+
+        dd($etudiant);
     }
 }

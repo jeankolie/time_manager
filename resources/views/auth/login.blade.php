@@ -10,59 +10,33 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-pattern">
+                        <div class="card-box">
+                            <h4 class="header-title mb-4 text-center">Portail de connexion</h4>
 
-                            <div class="card-body p-4">
-                                
-                                <div class="text-center w-75 m-auto">
-                                    <a href="index">
-                                        <span><h2 style="color: gray">Time manager</h2></span>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">{{ $errors->first() }}</div>
+                            @endif
+                            <ul class="nav nav-pills navtab-bg nav-justified">
+                                <li class="nav-item">
+                                    <a href="#home1" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                        Etudiant
                                     </a>
-                                    <p class="text-muted mb-4 mt-3">Entrer votre identifiant et mot de pass.</p>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#profile1" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                        Administration
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane show active" id="home1">
+                                    @include('auth.partials.etudiant')
                                 </div>
-
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">{{ $errors->first() }}</div>
-                                @endif
-
-                                <form action="{{ route('login') }}" method="POST">
-                                    @csrf
-                                    <div class="form-group mb-3">
-                                        <label for="emailaddress">Login:</label>
-                                        <input class="form-control" type="text" id="emailaddress" placeholder="Entrer votre identifiant" name="login">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <label for="password">Password:</label>
-                                        <input class="form-control" type="password" id="password" placeholder="Entrer votre mot de pass" name="password">
-                                    </div>
-
-                                    <div class="form-group mb-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                            <label class="custom-control-label" for="checkbox-signin">Se souvenir de moi</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group mb-0 text-center">
-                                        <button class="btn btn-primary btn-block" type="submit"> Log In </button>
-                                    </div>
-
-                                </form>
-
-
-                            </div> <!-- end card-body -->
-                        </div>
-                        <!-- end card -->
-
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <p> <a href="pages-recoverpw" class="text-white-50 ml-1">Forgot your password?</a></p>
-                                <p class="text-white-50">Don't have an account? <a href="pages-register" class="text-white ml-1"><b>Sign Up</b></a></p>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
+                                <div class="tab-pane " id="profile1">
+                                    @include('auth.partials.admin')
+                                </div>
+                            </div>
+                        </div> <!-- end card-box-->
                     </div> <!-- end col -->
                 </div>
                 <!-- end row -->

@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Hash;
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function () {
+Route::post('/login-etudiant', 'EtudiantController@login');
 
+Route::group(['middleware' => ['auth']], function () {
 
 	Route::get('/reset/{email}', function ($email){
 
