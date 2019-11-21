@@ -28,9 +28,11 @@
                             @php
                                 $s = $emplois->where('jour', $jour)->where('intervale', $intervale)->first()->semestre->id_semestre;
                             @endphp
-                            <a class="btn-delete btn btn-danger btn-xs" href="{{ route('emplois.destroy', [true, 'jours' => $jour, 'semestre' => $s, 'intervale' => $intervale]) }}">
-                                Supprimer
-                            </a>
+                            @if (Auth::check())
+                                <a class="btn-delete btn btn-danger btn-xs" href="{{ route('emplois.destroy', [true, 'jours' => $jour, 'semestre' => $s, 'intervale' => $intervale]) }}">
+                                    Supprimer
+                                </a>
+                            @endif
                         </td>
                     @endforeach
                 </tr>

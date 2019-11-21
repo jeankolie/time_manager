@@ -120,6 +120,28 @@ class EtudiantController extends Controller
            return back()->withInput()->withErrors(['Matricule ou mot de passe invalide']);
         }
 
-        return redirect('auth.emplois');
+        //return redirect('/emplois-du-temps')->with('etudiant', $etudiant);
+
+        return redirect()->action(
+            'EtudiantController@monEmplois', ['etudiant' => $etudiant->id_etudiant]
+        );
+    }
+
+    public function monEmplois(Request $request)
+    {
+
+        $annee = Annee::orderBy('id_annee', 'DESC')->limit(1)->first()->id_annee;
+
+        $inscription = Etudiant::find($request->etudiant)->inscrires()->where('id_annee', $annee)->first();
+
+        $licence = $inscription->licence;
+
+        return view('auth.emplois', [
+            'licence' => [$licence],
+            'departement' => $inscription->departement,
+            'annee' => Annee::orderBy('id_annee', 'desc')->take(1)->first()->id_annee,
+            'intervales' => ['8h-11h', '11h-14h', '14h-17h', '17h-20h'],
+            'jours' => ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
+        ]);
     }
 }

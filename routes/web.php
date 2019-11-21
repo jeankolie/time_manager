@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Hash;
 
 Auth::routes();
 
+Route::get('/emplois-du-temps', 'EtudiantController@monEmplois');
+
 Route::post('/login-etudiant', 'EtudiantController@login');
 
 Route::group(['middleware' => ['auth']], function () {
@@ -30,8 +32,6 @@ Route::group(['middleware' => ['auth']], function () {
 	})->middleware('admin');
 	
     Route::get('/', 'HomeController@index');
-
-    Route::get('emplois-du-temps', 'Etudiant@portail');
 
     Route::get('/portail', 'EtudiantController@portail')->middleware('etudiant');
 

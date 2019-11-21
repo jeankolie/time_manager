@@ -9,33 +9,17 @@
         <div class="account-pages mt-5 mb-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="col-md-12">
                         <div class="card-box">
-                            <h4 class="header-title mb-4 text-center">Portail de connexion</h4>
+                            <h4 class="text-center">Departement: {{ $departement->nom }}</h4>
+                            <h5 class="text-center">Responsable: {{ $departement->responsable }}</h5>
+                            @include('layouts.tab', ['licences' => $licence])
 
-                            @if ($errors->any())
-                                <div class="alert alert-danger">{{ $errors->first() }}</div>
-                            @endif
-                            <ul class="nav nav-pills navtab-bg nav-justified">
-                                <li class="nav-item">
-                                    <a href="#home1" data-toggle="tab" aria-expanded="true" class="nav-link active">
-                                        Etudiant
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#profile1" data-toggle="tab" aria-expanded="false" class="nav-link">
-                                        Administration
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane show active" id="home1">
-                                    @include('auth.partials.etudiant')
-                                </div>
-                                <div class="tab-pane " id="profile1">
-                                    @include('auth.partials.admin')
-                                </div>
-                            </div>
+                            <h3 class="text-center">
+                                <a class="btn btn-success" href="{{ route('login') }}">
+                                    James Carter
+                                </a>
+                            </h3>
                         </div> <!-- end card-box-->
                     </div> <!-- end col -->
                 </div>
