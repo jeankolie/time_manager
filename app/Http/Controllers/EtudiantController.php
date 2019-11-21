@@ -109,12 +109,17 @@ class EtudiantController extends Controller
     public function login(EtudiantLoginRequest $request)
     {
         $password = Hash::make($request->password);
-        if (!Etudiant::whereMatricule($request->matricule)->wherePassword($password)->exists()) {
+
+        if (!Etudiant::whereMatricule($request->matricule)->exists()) {
             return back()->withInput()->withErrors(['Matricule ou mot de passe invalide']);
         }
 
         $etudiant = Etudiant::whereMatricule($request->matricule)->first();
 
-        dd($etudiant);
+        if (!Hash::check($request->password, $etudiant->password)) {
+           return back()->withInput()->withErrors(['Matricule ou mot de passe invalide']);
+        }
+
+        return redirect('auth.emplois');
     }
 }

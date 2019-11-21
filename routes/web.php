@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
 	
     Route::get('/', 'HomeController@index');
 
+    Route::get('emplois-du-temps', 'Etudiant@portail');
+
     Route::get('/portail', 'EtudiantController@portail')->middleware('etudiant');
 
 	Route::resource('departements', 'DepartementController');
