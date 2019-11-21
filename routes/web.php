@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
 	
     Route::get('/', 'HomeController@index');
 
-    Route::get('/portail', 'EtudiantController@portail')->middlieware('etudiant');
+    Route::get('/portail', 'EtudiantController@portail')->middleware('etudiant');
 
 	Route::resource('departements', 'DepartementController');
 
