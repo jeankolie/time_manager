@@ -11,7 +11,7 @@
                                             AJOUTER UN ETUDIANT
                                         </a>
                                         
-                                    <br>
+                                    <br><br>
 
                                     @foreach($l as $licence)
                                         <h4 class="header-title">Etudiant de la {{ $licence->nom }}</h4>
@@ -22,6 +22,7 @@
                                                     <th>Matricule</th>
                                                     <th>Nom</th>
                                                     <th>Prenom</th>
+                                                     <th>Telephone</th>
                                                     <th class="text-right">Actions</th>
                                                 </tr>
                                                 </thead>
@@ -31,6 +32,7 @@
                                                             <td>{{ $insctiption->etudiant->matricule }}</td>
                                                             <td>{{ $insctiption->etudiant->nom }}</td>
                                                             <td>{{ $insctiption->etudiant->prenom }}</td>
+                                                            <td>{{ $insctiption->etudiant->telephone }}</td>
                                                             <td class="text-right">
                                                                 <a href="{{ route('etudiants.edit', $insctiption->etudiant->matricule) }}" class="btn btn-info">Modifier</a>
                                                                 <a href="{{ route('etudiants.destroy', $insctiption->etudiant->matricule) }}" class="btn btn-danger btn-delete">Supprimer</a>
