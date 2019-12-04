@@ -37,7 +37,7 @@ class GestionEtudiant
 		]);
 
 		$url = "https://www.time-manager.prestigroupgn.com";
-		$msg = "Consulter votre emploi sur $url, vos identifiants sont: $data->matricule et votre mot de passe: $password, consulter";
+		$msg = "Consulter votre emploi sur $url, vos identifiants sont: $data->matricule et votre mot de passe: $password";
 		sendSMS($data->telephone, $msg);
 	}
 
