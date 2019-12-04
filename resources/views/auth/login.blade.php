@@ -1,7 +1,7 @@
 @extends('layouts.master-without-nav')
 
 @section('body')
-    <body class="authentication-bg authentication-bg-pattern">
+    <body class="authentication-bgjs authentication-bg-pattern">
 @endsection
 
 @section('content')

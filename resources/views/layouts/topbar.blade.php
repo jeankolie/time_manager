@@ -50,7 +50,7 @@
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">U</span> -->
-                <img src="assets/images/logo-sm.png" alt="" height="24">
+                <img src="assets/images/tm_logo.jpg" alt="" height="24">
             </span>
         </a>
     </div>

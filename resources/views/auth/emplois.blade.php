@@ -17,7 +17,7 @@
 
                             <h3 class="text-center">
                                 <a class="btn btn-success" href="{{ route('login') }}">
-                                    James Carter
+                                    Deconnexion
                                 </a>
                             </h3>
                         </div> <!-- end card-box-->

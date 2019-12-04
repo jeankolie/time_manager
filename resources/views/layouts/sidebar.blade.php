@@ -11,7 +11,6 @@
 
                 <li>
                     <a href="/departements">
-                        <i class="fe-airplay"></i>
                         <span class="badge badge-success badge-pill float-right">{{ $dep }}</span>
                         <span> Departement </span>
                     </a>
@@ -19,7 +18,6 @@
                 @if (Auth::user()->priorite == 0)
                     <li>
                         <a href="/matieres">
-                            <i class="fe-airplay"></i>
                             <span class="badge badge-success badge-pill float-right">{{ $mat }}</span>
                             <span> Matiere </span>
                         </a>
@@ -27,7 +25,6 @@
 
                      <li>
                         <a href="/annees">
-                            <i class="fe-airplay"></i>
                             <span class="badge badge-success badge-pill float-right">{{ $an }}</span>
                             <span> Annee Scolaire </span>
                         </a>
@@ -37,21 +34,18 @@
                 @if (Auth::user()->priorite > 0)
                     <li>
                         <a href="/etudiants">
-                            <i class="fe-airplay"></i>
                             <span class="badge badge-success badge-pill float-right">{{ $etu }}</span>
                             <span> Etudiants </span>
                         </a>
                     </li>
                     <li>
                        <a href="/salles">
-                           <i class="fe-airplay"></i>
                            <span class="badge badge-success badge-pill float-right">{{ $sal }}</span>
                            <span> Salle de classe </span>
                        </a>
                    </li>
                     <li>
                         <a href="/emplois">
-                            <i class="fe-airplay"></i>
                             <span> Emplois du temps </span>
                         </a>
                     </li>
@@ -59,7 +53,6 @@
 
                 <li>
                     <a href="/mon-compte">
-                        <i class="fe-airplay"></i>
                         <span> Mon compte </span>
                     </a>
                 </li>
