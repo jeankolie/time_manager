@@ -38,10 +38,13 @@
                                                         <label for="inputLogin" class="col-form-label">Prenom</label>
                                                         <input type="text" class="form-control" name="prenom" value="{{ old('prenom') ?? $etudiant->prenom }}">
                                                     </div>
-                                                    
                                                 </div>
 
                                                 <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label for="inputPassword" class="col-form-label">Telephone</label>
+                                                        <input type="text" class="form-control" name="telephone" value="{{ old('telephone')?? $etudiant->telephone }}">
+                                                    </div>
                                                     <div class="form-group col-md-4">
                                                         <label class="col-form-label">licence</label>
                                                         <select class="form-control" name="licence">

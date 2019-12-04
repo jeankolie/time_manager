@@ -44,7 +44,9 @@ class GestionEtudiant
 		Etudiant::find($data->etudiant)->update([
 			'matricule' => $data->matricule,
 			'nom' => $data->nom,
-			'prenom' => $data->prenom
+			'prenom' => $data->prenom,
+			'telephone'=>$data->telephone
+
 		]);
 
 		$annee = Annee::orderBy('id_annee', 'desc')->take(1)->first()->id_annee;
