@@ -36,7 +36,9 @@ class GestionEtudiant
 			'date_inscription' => date('Y-m-d')
 		]);
 
-		sendSMS($data->telephone, "Votre matricule est: $data->matricule et votre mot de passe: $password");
+		$url = "https://www.time-manager.prestigroupgn.com";
+		$msg = "Consulter votre emploi sur $url, vos identifiants sont: $data->matricule et votre mot de passe: $password, consulter";
+		sendSMS($data->telephone, $msg);
 	}
 
 	public function update($data)
