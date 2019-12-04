@@ -16,3 +16,5 @@ Pour demarrer laravel dans un autre repectoire, il faut: install composer
 NB: En etant place' dans le repectoire du fichier en question
 
 php artisan serve –-host=192.168.2.20 --port=8000
+
+bien recu.
