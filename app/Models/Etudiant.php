@@ -31,7 +31,7 @@ class Etudiant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['matricule', 'prenom', 'nom', 'password'];
+    protected $fillable = ['matricule', 'prenom', 'nom', 'telephone', 'password'];
 
     /**
      * Indicates if the model should be timestamped.

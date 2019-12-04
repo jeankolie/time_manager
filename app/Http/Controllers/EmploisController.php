@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Salle, Annee};
+use App\Models\{Salle, Annee, Inscrire};
 use App\Http\Requests\{EnseignerCreateRequest, EnseignerUpdateRequest};
 use App\Gestion\{GestionEmplois};
 
@@ -17,7 +17,7 @@ class EmploisController extends Controller
     public function index()
     {
         return view('emplois', [
-            'annee' => Annee::orderBy('id_annee', 'desc')->take(1)->first()->id_annee,
+            'annee' => lastYear()->id_annee,
             'intervales' => ['8h-11h', '11h-14h', '14h-17h', '17h-20h'],
             'jours' => ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
         ]);
@@ -96,5 +96,21 @@ class EmploisController extends Controller
     {
         $gestion->delete($request);
         return response()->json(['statut' => true]);
+    }
+
+    public function envoyerMessage(Request $request)
+    {
+        if (empty($request->message)) {
+            return back()->with('erreur', 'Saisisser le message a envoyer');
+        }
+
+        $inscriptions = Inscrire::where('id_annee', lastYear()->id_annee)->where('id_licence', $request->licence)->get();
+        foreach ($inscriptions as $inscription) {
+            $tel = $inscription->etudiant->telephone;
+            $msg = $request->message;
+            sendSMS($tel, $msg);
+        }
+
+        return back()->with('msg', 'Message envoye avec succes');
     }
 }

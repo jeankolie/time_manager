@@ -15,6 +15,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'api_sms_client' => env('API_SMS_CLIENT', ''),
+    'api_sms_secret' => env('API_SMS_SECRET', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

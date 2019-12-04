@@ -25,11 +25,11 @@ class EtudiantCreateRequest extends FormRequest
     {
         return [
             'matricule' => 'required|string|min:5|unique:etudiant',
+            'telephone' => 'required|string|min:9|unique:etudiant',
             'nom' => 'required|string|min:2',
             'prenom' => 'required|string|min:2',
             'annee' => 'required',
-            'licence' => 'required',
-            'password' => 'required|min:6'
+            'licence' => 'required'
         ];
     }
 }

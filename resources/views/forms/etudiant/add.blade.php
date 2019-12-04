@@ -43,6 +43,10 @@
 
                                                 <div class="form-row">
                                                     <div class="form-group col-md-4">
+                                                        <label for="inputPassword" class="col-form-label">Telephone</label>
+                                                        <input type="text" class="form-control" name="telephone" value="{{ old('telephone') }}">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
                                                         <label class="col-form-label">licence</label>
                                                         <select class="form-control" name="licence">
                                                             @foreach($licences as $licence)
@@ -58,10 +62,7 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    <div class="form-group col-md-4">
-                                                        <label for="inputPassword" class="col-form-label">Password</label>
-                                                        <input type="text" class="form-control" name="password">
-                                                    </div>   
+                                                      
                                                 </div>
 
                                                 

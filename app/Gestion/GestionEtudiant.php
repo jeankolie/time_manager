@@ -14,12 +14,19 @@ class GestionEtudiant
 {
 	public function create($data)
 	{
+
+		$password = generateOTP();
+
 		$etudiant = Etudiant::create([
 			'matricule' => $data->matricule,
 			'nom' => $data->nom,
 			'prenom' => $data->prenom,
-			'password' => Hash::make($data->password)
+			'telephone' => $data->telephone,
+			'password' => Hash::make($password)
 		]);
+
+		$etudiant->sha = sha1($etudiant->id_etudiant);
+		$etudiant->save();
 
 		Inscrire::create([
 			'id_etudiant' => $etudiant->id_etudiant, 
@@ -28,6 +35,8 @@ class GestionEtudiant
 			'id_licence' => $data->licence, 
 			'date_inscription' => date('Y-m-d')
 		]);
+
+		sendSMS($data->telephone, "Votre matricule est: $data->matricule et votre mot de passe: $password");
 	}
 
 	public function update($data)

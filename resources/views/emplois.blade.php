@@ -13,18 +13,30 @@
             </div> <!-- end col -->
         </div> <!-- end table-responsive-->
         <div>
-          <div class="col-lg-6">
+          <div class="col-lg-6" id="message">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="mb-3 header-title">Licence consernée</h4>
-                                        <form>
+                                        <h4 class="mb-3 header-title">Envoyer un message</h4>
+                                        @if (\Session::has('msg'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('msg') }}
+                                            </div>
+                                        @endif
+                                        @if (\Session::has('erreur'))
+                                            <div class="alert alert-danger">
+                                                {{ Session::get('erreur') }}
+                                            </div>
+                                        @endif
+                                        <form method="POST" action="/envoyer-message#message">
+                                            @csrf
                                             <div class="form-group">
-                                              <select id="inputState" class="form-control" name="licence">
-                                                @foreach (Auth::user()->departement->licences as $licence)
-                                                    <option value="{{ $licence->id_licence }}">{{ $licence->nom }}
-                                                  </option>
-                                                @endforeach
-                                              </select>
+                                                <label>Licence:</label>
+                                                <select id="inputState" class="form-control" name="licence">
+                                                    @foreach (Auth::user()->departement->licences as $licence)
+                                                        <option value="{{ $licence->id_licence }}">{{ $licence->nom }}
+                                                      </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Message à adresser</label>

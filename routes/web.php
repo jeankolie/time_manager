@@ -11,10 +11,21 @@
 |
 */
 use Illuminate\Support\Facades\Hash;
+use App\Models\{Etudiant, Inscrire, Annee};
 
 Auth::routes();
 
-Route::get('/emplois-du-temps', 'EtudiantController@monEmplois');
+Route::get('/update/database', function() {
+	$etudiants = Etudiant::all();
+	foreach ($etudiants as $etudiant) {
+		$etudiant->sha = sha1($etudiant->id_etudiant);
+		$etudiant->save();
+	}
+
+	return redirect('/'); 
+});
+
+Route::get('/emplois-du-temps/{etudiant}', 'EtudiantController@monEmplois');
 
 Route::post('/login-etudiant', 'EtudiantController@login');
 
@@ -28,7 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
 			'password' => Hash::make($otp)
 		]);
 
-		echo $otp;
+		return $otp;
 	})->middleware('admin');
 	
     Route::get('/', 'HomeController@index');
@@ -42,6 +53,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::resource('annees', 'AnneeController')->middleware('admin');
 
 	Route::resource('emplois', 'EmploisController')->middleware('dep');
+
+	Route::post('/envoyer-message', 'EmploisController@envoyerMessage')->middleware('dep');
 
 	Route::resource('salles', 'SalleController');
 

@@ -122,17 +122,15 @@ class EtudiantController extends Controller
 
         //return redirect('/emplois-du-temps')->with('etudiant', $etudiant);
 
-        return redirect()->action(
-            'EtudiantController@monEmplois', ['etudiant' => $etudiant->id_etudiant]
-        );
+        return redirect("/emplois-du-temps/$etudiant->sha");
     }
 
-    public function monEmplois(Request $request)
+    public function monEmplois($etudiant)
     {
 
         $annee = Annee::orderBy('id_annee', 'DESC')->limit(1)->first()->id_annee;
 
-        $inscription = Etudiant::find($request->etudiant)->inscrires()->where('id_annee', $annee)->first();
+        $inscription = Etudiant::whereSha($etudiant)->first()->inscrires()->where('id_annee', $annee)->first();
 
         $licence = $inscription->licence;
 
