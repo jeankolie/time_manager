@@ -14,7 +14,7 @@
         @include('layouts.head')
         <style type="text/css">
             body{
-                background-image: url("images/new_time.jpg");
+                background-image: url("images/bg-pattern.jpg");
             }
         </style>
   </head>
