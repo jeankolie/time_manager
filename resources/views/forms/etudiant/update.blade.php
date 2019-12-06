@@ -26,17 +26,21 @@
                                             @method('PUT')
                                             <input type="hidden" name="etudiant" value="{{ $etudiant->id_etudiant }}">
                                             <div class="form-row">
-                                                    <div class="form-group col-md-4">
+                                                    <div class="form-group col-md-3">
                                                         <label for="inputNom_personnel" class="col-form-label">Matricule</label>
                                                         <input type="text" class="form-control" name="matricule" value="{{ old('matricule') ?? $etudiant->matricule }}">
                                                     </div>
-                                                    <div class="form-group col-md-4">
+                                                    <div class="form-group col-md-3">
                                                         <label for="inputLogin" class="col-form-label">Nom</label>
                                                         <input type="text" class="form-control" name="nom" value="{{ old('nom') ?? $etudiant->nom }}">
                                                     </div>
-                                                    <div class="form-group col-md-4">
+                                                    <div class="form-group col-md-3">
                                                         <label for="inputLogin" class="col-form-label">Prenom</label>
                                                         <input type="text" class="form-control" name="prenom" value="{{ old('prenom') ?? $etudiant->prenom }}">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="inputLogin" class="col-form-label">Adresse e-mail</label>
+                                                        <input type="text" class="form-control" name="email" value="{{ old('email') ?? $etudiant->email}}">
                                                     </div>
                                                 </div>
 

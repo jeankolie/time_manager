@@ -1,19 +1,10 @@
-# PH pagespeed start
-<IfModule pagespeed_module>
-ModPagespeed on
-ModPagespeedRewriteLevel PassThrough
-ModPagespeedEnableFilters add_head,fallback_rewrite_css_urls,flatten_css_imports,rewrite_style_attributes_with_url,extend_cache,convert_meta_tags,combine_javascript,rewrite_javascript,inline_javascript,rewrite_css,combine_css,inline_css,inline_import_to_link,rewrite_images
-</IfModule>
-# PH pagespeed end 
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine On
-
-    RewriteCond %{HTTPS} off
-    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -35,22 +26,4 @@ ModPagespeedEnableFilters add_head,fallback_rewrite_css_urls,flatten_css_imports
     Order allow,deny
     Deny from all
 </Files>
-
-RewriteCond %{HTTP_REFERER} !^http://gallery.prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://gallery.prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.gallery.prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.gallery.prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://gallery.prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://gallery.prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.gallery.prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.gallery.prestigroupgn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.prestigroupgn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.prestigroupgn.com$      [NC]
-RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
 

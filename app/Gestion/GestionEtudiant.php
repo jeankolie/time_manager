@@ -21,6 +21,7 @@ class GestionEtudiant
 			'matricule' => $data->matricule,
 			'nom' => $data->nom,
 			'prenom' => $data->prenom,
+			'email' => $data->email,
 			'telephone' => $data->telephone,
 			'password' => Hash::make($password)
 		]);
@@ -47,6 +48,7 @@ class GestionEtudiant
 			'matricule' => $data->matricule,
 			'nom' => $data->nom,
 			'prenom' => $data->prenom,
+			'email' => $data->email,
 			'telephone'=>$data->telephone
 
 		]);

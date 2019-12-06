@@ -22,6 +22,7 @@
                                                     <th>Matricule</th>
                                                     <th>Nom</th>
                                                     <th>Prenom</th>
+                                                    <th>Adresse e-mail</th>
                                                      <th>Telephone</th>
                                                     <th class="text-right">Actions</th>
                                                 </tr>
@@ -32,6 +33,7 @@
                                                             <td>{{ $insctiption->etudiant->matricule }}</td>
                                                             <td>{{ $insctiption->etudiant->nom }}</td>
                                                             <td>{{ $insctiption->etudiant->prenom }}</td>
+                                                            <td>{{ $insctiption->etudiant->email }}</td>
                                                             <td>{{ $insctiption->etudiant->telephone }}</td>
                                                             <td class="text-right">
                                                                 <a href="{{ route('etudiants.edit', $insctiption->etudiant->matricule) }}" class="btn btn-info">Modifier</a>
