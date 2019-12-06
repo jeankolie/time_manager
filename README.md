@@ -18,3 +18,4 @@ NB: En etant place' dans le repectoire du fichier en question
 php artisan serve –-host=192.168.2.20 --port=8000
 
 bien recu.
+test de push
