@@ -106,15 +106,13 @@ class EmploisController extends Controller
             return back()->with('erreur', 'Saisisser le message a envoyer');
         }
 
-        $inscriptions = Inscrire::where('id_annee', lastYear()->id_annee)->where('id_licence', $request->licence)->get();
+        $inscriptions = Inscrire::where('id_licence', $request->licence)->get();
         foreach ($inscriptions as $inscription) {
             $tel = $inscription->etudiant->telephone;
             $msg = $request->message;
             sendSMS($tel, $msg);
             //Email
-            dd($inscription->etudiant->email);
             if (!empty($inscription->etudiant->email)) {
-                die();
                 Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
             }
         }
