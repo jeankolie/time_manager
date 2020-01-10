@@ -110,7 +110,7 @@ class EmploisController extends Controller
         foreach ($inscriptions as $inscription) {
             $tel = Etudiant::find($inscription->id_etudiant)->telephone;
             $msg = $request->message;
-            sendSMS($tel, $msg);
+            //sendSMS($tel, $msg);
             //Email
             if (!empty(Etudiant::find($inscription->id_etudiant)->email)) {
                 Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
