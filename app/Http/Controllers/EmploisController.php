@@ -107,6 +107,7 @@ class EmploisController extends Controller
         }
 
         $inscriptions = Inscrire::where('id_licence', $request->licence)->get();
+        dd($inscriptions);
         foreach ($inscriptions as $inscription) {
             $tel = $inscription->etudiant->telephone;
             $msg = $request->message;
