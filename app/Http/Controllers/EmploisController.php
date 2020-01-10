@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Salle, Annee, Inscrire};
+use App\Models\{Salle, Annee, Inscrire, Etudiant};
 use App\Http\Requests\{EnseignerCreateRequest, EnseignerUpdateRequest};
 use App\Gestion\{GestionEmplois};
 use App\Mail\{SendNotification};
@@ -107,13 +107,12 @@ class EmploisController extends Controller
         }
 
         $inscriptions = Inscrire::where('id_licence', $request->licence)->get();
-        dd($inscriptions);
         foreach ($inscriptions as $inscription) {
-            $tel = $inscription->etudiant->telephone;
+            $tel = Etudiant::find($inscription->id_etudiant)->telephone;
             $msg = $request->message;
             sendSMS($tel, $msg);
             //Email
-            if (!empty($inscription->etudiant->email)) {
+            if (!empty(Etudiant::find($inscription->id_etudiant)->email)) {
                 Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
             }
         }
