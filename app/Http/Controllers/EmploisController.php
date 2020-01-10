@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\{Salle, Annee, Inscrire};
 use App\Http\Requests\{EnseignerCreateRequest, EnseignerUpdateRequest};
 use App\Gestion\{GestionEmplois};
-use App\Mail\{SendMail};
+use App\Mail\{SendNotification};
 use Illuminate\Support\Facades\Mail;
 
 class EmploisController extends Controller
@@ -113,7 +113,7 @@ class EmploisController extends Controller
             sendSMS($tel, $msg);
             //Email
             if (!empty($inscription->etudiant->email)) {
-                //Mail::to($inscription->etudiant->email)->send(new SendMail($msg));
+                Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
             }
         }
 
