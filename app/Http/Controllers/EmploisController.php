@@ -112,6 +112,7 @@ class EmploisController extends Controller
             $msg = $request->message;
             sendSMS($tel, $msg);
             //Email
+            dd($inscription->etudiant->email);
             if (!empty($inscription->etudiant->email)) {
                 die();
                 Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
