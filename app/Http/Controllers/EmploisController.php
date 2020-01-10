@@ -18,6 +18,7 @@ class EmploisController extends Controller
      */
     public function index()
     {
+        return env('MAIL_HOST');
         return view('emplois', [
             'annee' => lastYear()->id_annee,
             'intervales' => ['8h-11h', '11h-14h', '14h-17h', '17h-20h'],
