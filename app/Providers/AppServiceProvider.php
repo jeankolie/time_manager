@@ -35,10 +35,10 @@ class AppServiceProvider extends ServiceProvider
         config(['app.name' => 'Time manager']);
         config([
             'mail.host' =>'time-manager.prestigroupgn.com',
-            'mail.port' => 26,
+            'mail.port' => 465,
             'mail.username' => 'emplois@time-manager.prestigroupgn.com',
             'mail.password' => 'JeanKolie',
-            'mail.encryption' => null
+            'mail.encryption' => 'tls'
         ]);
     }
 }
