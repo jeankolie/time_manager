@@ -9,6 +9,8 @@ use App\Models\{Etudiant, Inscrire, Annee};
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\{SendNotification};
+use Illuminate\Support\Facades\Mail;
 
 class GestionEtudiant
 {
@@ -40,6 +42,7 @@ class GestionEtudiant
 		$url = "https://www.time-manager.prestigroupgn.com";
 		$msg = "Consulter votre emploi sur $url, vos identifiants sont: $data->matricule et votre mot de passe: $password";
 		sendSMS($data->telephone, $msg);
+		Mail::to($data->email)->send(new SendNotification($msg));
 	}
 
 	public function update($data)
