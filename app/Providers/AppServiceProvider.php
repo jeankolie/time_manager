@@ -31,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('etu', Etudiant::count());
         View::share('sal', Salle::count());
         View::share('per', Personnel::count());
+
+        config(['app.name' => 'Time manager']);
     }
 }
