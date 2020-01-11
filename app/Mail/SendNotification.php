@@ -18,9 +18,11 @@ class SendNotification extends Mailable
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $subject = "Notifiaction")
     {
         $this->message = $message;
+        $this->subject($subject);
+
     }
 
     /**
@@ -30,7 +32,7 @@ class SendNotification extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.notification.etudiant')->with([
+        return $this->from(config('mail.username'), 'Time manager')->markdown('emails.notification.etudiant')->with([
             'message' => $this->message
         ]);
     }
