@@ -160,23 +160,7 @@
                             <div class="col-12">
                                 <div class="card-box widget-inline">
                                     <div class="row">
-                                        <div class="col-sm-6 col-xl-3">
-                                            <div class="p-2 text-center">
-                                                <p class="text-muted font-15 mb-0">Nombre d'etudiant(s) connecter</p>
-                                                <i class=" mdi mdi-eye-outline text-primary mdi-24px"></i>
-                                                <h3><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ Auth::user()->$etu }}</span></h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-xl-3">
-                                            <div class="p-2 text-center">
-                                                <p class="text-muted font-15 mb-0">Nombre de personnel(s) connecter</p><br>
-                                                <i class="icon-user-following text-success mdi-24px"></i>
-                                                <h3><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ Auth::user()->$per }}</span></h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-xl-3">
+                                        <div class="col-sm-6 col-xl-6">
                                             <div class="p-2 text-center">
                                                 <p class="text-muted font-15 mb-0">Total utilisateur(s)</p><br>
                                                 <i class="mdi mdi-account-group text-danger mdi-24px"></i>
@@ -184,7 +168,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6 col-xl-3">
+                                        <div class="col-sm-6 col-xl-6">
                                             <div class="p-2 text-center">
                                                 <p class="text-muted mb-1">Nombre de salle(s)</p><br><br>
                                                 <i class=" icon-home text-blue mdi-24px"></i>
