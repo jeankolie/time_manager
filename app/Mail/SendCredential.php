@@ -23,6 +23,7 @@ class SendCredential extends Mailable
     {
         $this->personnel = $personnel;
         $this->password = $password;
+        $this->subject("Creation de compte");
     }
 
     /**
@@ -32,7 +33,7 @@ class SendCredential extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.personnel.create')->with([
+        return $this->from(config('mail.username'), 'Time manager')->markdown('emails.personnel.create')->with([
             'personnel' => $this->personnel,
             'password' => $this->password
         ]);

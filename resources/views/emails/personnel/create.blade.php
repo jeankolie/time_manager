@@ -1,5 +1,5 @@
 @component('mail::message')
-Bienvenu {{ $personnel->prenom }}, vos identifiants sont: login: {{ $personnel->login }} et votre mot de passe: {{ $password }}
+Bienvenu {{ $personnel->nom }}, vos identifiants sont: login: {{ $personnel->login }} et votre mot de passe: {{ $password }}
 
 @component('mail::button', ['url' => config('app.url')])
 	Connectez-vous
