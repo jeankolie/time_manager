@@ -7,7 +7,6 @@
                 <div class="app-search-box">
                     <div class="input-group">
                         <div class="input-group-append">
-
                         </div>
                     </div>
                 </div>
@@ -34,9 +33,6 @@
             </div>
         </li>
 
-
-
-
     </ul>
 
     <!-- LOGO -->
@@ -59,7 +55,12 @@
                 <i class="fe-menu"></i>
             </button>
         </li>
-
+        
+        <li class="dropdown d-none d-lg-block">
+            <a class="nav-link waves-effect waves-light" href="#" role="button" style="font-weight: bold; font-size: 18px; color: white">
+                {{ mb_strtoupper(Auth::user()->departement->nom) }}
+            </a>
+        </li>
     </ul>
 </div>
 <!-- end Topbar -->

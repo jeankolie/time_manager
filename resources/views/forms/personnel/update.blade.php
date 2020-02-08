@@ -31,8 +31,8 @@
                                                     <input type="text" class="form-control" name="nom" value="{{ old('nom') ?? $personnel->nom }}">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputLogin" class="col-form-label">Login</label>
-                                                    <input type="text" class="form-control" name="login" value="{{ old('login') ?? $personnel->login }}">
+                                                    <label for="inputLogin" class="col-form-label">Email:</label>
+                                                    <input type="email" class="form-control" name="login" value="{{ old('login') ?? $personnel->login }}">
                                                 </div>
                                                 
                                             </div>

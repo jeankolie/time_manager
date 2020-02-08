@@ -9,6 +9,8 @@ use App\Models\{Personnel};
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\SendCredential;
+use Illuminate\Support\Facades\Mail;
 
 class GestionPersonnel
 {
@@ -20,14 +22,21 @@ class GestionPersonnel
 			$priorite = 1;
 		}
 
+		$password = $this->generateNumericOTP();
 
-		Personnel::create([
+		$user = Personnel::create([
 			'nom' => $data->nom,
 			'login' => $data->login,
-			'password' => Hash::make($data->password),
+			'password' => Hash::make($password),
 			'id_departement' => $data->departement,
 			'priorite' => $priorite
 		]);
+
+		try {
+			Mail::to($user->login)->send(new SendCredential($user, $password));
+		} catch (Exception $e) {
+			
+		}
 	}
 
 	public function update($data, $id)
@@ -44,5 +53,17 @@ class GestionPersonnel
 			return;
 		}
 		Personnel::whereLogin($slug)->delete();
+	}
+
+	public function generateNumericOTP($n = 6) {  
+	    $generator = "1357902468";
+	  
+	    $result = ""; 
+	  
+	    for ($i = 1; $i <= $n; $i++) { 
+	        $result .= substr($generator, (rand()%(strlen($generator))), 1); 
+	    } 
+	    // Return result 
+	    return $result; 
 	}
 }

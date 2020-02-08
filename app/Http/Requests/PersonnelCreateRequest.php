@@ -25,8 +25,7 @@ class PersonnelCreateRequest extends FormRequest
     {
         return [
             'nom' => 'required|string|min:3',
-            'login' => 'required|string|min:3|unique:personnel',
-            'password' => 'required|min:6'
+            'login' => 'required|email|unique:personnel'
         ];
     }
 }

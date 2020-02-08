@@ -13,7 +13,7 @@
             </div> <!-- end col -->
         </div> <!-- end table-responsive-->
         <div>
-          <div class="col-lg-6" id="message">
+        <div class="col-lg-6" id="message">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="mb-3 header-title">Envoyer un message</h4>

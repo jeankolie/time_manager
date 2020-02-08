@@ -30,19 +30,12 @@
                                                     <input type="text" class="form-control" name="nom" value="{{ old('nom') }}">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputLogin" class="col-form-label">Login</label>
-                                                    <input type="text" class="form-control" name="login" value="{{ old('login') }}">
+                                                    <label for="inputLogin" class="col-form-label">Email:</label>
+                                                    <input type="email" class="form-control" name="login" value="{{ old('login') }}">
                                                 </div>
                                                 
                                             </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword" class="col-form-label">Password</label>
-                                                    <input type="text" class="form-control" value="{{ time() }}" name="password">
-                                                </div>
-                                            </div>
 
-                                            
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">CREER LE PERSONNEL</button>
                                             <button type="reset" class="btn btn-primary waves-effect waves-light">Annuler</button>
 

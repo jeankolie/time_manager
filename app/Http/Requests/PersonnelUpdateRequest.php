@@ -25,7 +25,7 @@ class PersonnelUpdateRequest extends FormRequest
     {
         return [
             'nom' => 'required|string|min:3',
-            'login' => 'required|string|min:5|unique:personnel,login,'.$this->personnel.',id_personnel'
+            'login' => 'required|mail|unique:personnel,login,'.$this->personnel.',id_personnel'
         ];
     }
 }
