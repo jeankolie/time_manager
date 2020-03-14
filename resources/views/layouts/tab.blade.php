@@ -12,10 +12,17 @@
     </ul>
     <div class="tab-content">
         @foreach($licences as $key => $licence)
+        @php
+          if (Auth::check()) {
+            $departement = Auth::user()->departement;
+          }
+
+        @endphp
+
           <div class="tab-pane {{ ($key == 0) ? 'show active' : '' }}" id="{{ $licence->slug }}">
               @foreach($licence->semestres as $semestre)
                 <h4 class="text-center title">{{ $semestre->nom }}</h4></br>
-                @include('layouts.table', ['emplois' => $semestre->enseigners->where('id_annee', $annee)->where('id_departement', Auth::user()->departement->id_departement)])
+                @include('layouts.table', ['emplois' => $semestre->enseigners->where('id_annee', $annee)->where('id_departement', $departement->id_departement)])
               @endforeach
           </div>
         @endforeach

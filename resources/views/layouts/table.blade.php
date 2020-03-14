@@ -1,6 +1,6 @@
 
 <div class="table-responsive">
-    <table class="table table-bordered mb-0">
+    <table class="table table-bordered table-sm mb-0">
         <thead>
         <tr>
             <th>Heures/ Jours</th>
