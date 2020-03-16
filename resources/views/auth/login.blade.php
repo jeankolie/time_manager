@@ -8,7 +8,7 @@
 
         <div class="account-pages mt-5 mb-5">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row left-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="card-box">
                             <h4 class="header-title mb-4 text-center">Portail de connexion</h4>

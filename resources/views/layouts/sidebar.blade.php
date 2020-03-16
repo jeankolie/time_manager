@@ -11,7 +11,7 @@
 
                 <li>
                     <a href="/departements">
-                        <span class="badge badge-success badge-pill float-right">{{ $dep }}</span>
+                        <span class="badge badge-success badge-pill float-right">{{ Auth::user()->departement->personnels->count() }}</span>
                         <span> Departement </span>
                     </a>
                 </li>
@@ -34,7 +34,7 @@
                 @if (Auth::user()->priorite > 0)
                     <li>
                         <a href="/etudiants">
-                            <span class="badge badge-success badge-pill float-right">{{ $etu }}</span>
+                            <span class="badge badge-success badge-pill float-right">{{ Auth::user()->departement->inscrires->count() }}</span>
                             <span> Etudiants </span>
                         </a>
                     </li>

@@ -7,78 +7,6 @@
 
 @section('content')
 
-                    <!-- Start Content-->
-                    <div class="container-fluid">
-                        
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box">
-                                    <h3>Les états de votre Département</h3>
-                                </div>
-                            </div>
-                        </div>     
-                        <!-- end page title --> 
-
-                        <div class="row">
-                            <div class="col-md-6 col-xl-4">
-                                <div class="widget-rounded-circle card-box">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                                <i class="icon-people font-22 avatar-title text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="text-right">
-                                                <p class="text-muted mb-1">Nombre d'etudiant(s)</p>
-                                                <h3 class="text-dark mt-1"><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ Auth::user()->departement->inscrires->count() }}</span></h3>  
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row-->
-                                </div> <!-- end widget-rounded-circle-->
-                            </div> <!-- end col-->
-
-                            <div class="col-md-6 col-xl-4">
-                                <div class="widget-rounded-circle card-box">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                                <i class="icon-list font-22 avatar-title text-success"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="text-right">
-                                                <p class="text-muted mb-1">Nombres de matieres</p>
-                                                <h3 class="text-dark mt-1"><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ Auth::user()->departement->matieres->count() }}</span></h3>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row-->
-                                </div> <!-- end widget-rounded-circle-->
-                            </div> <!-- end col-->
-
-                            <div class="col-md-6 col-xl-4">
-                                <div class="widget-rounded-circle card-box">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                                <i class=" icon-user-follow font-22 avatar-title text-info"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="text-right">
-                                                <p class="text-muted mb-1">Nombre de personnel(s)</p>
-                                                <h3 class="text-dark mt-1"><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ Auth::user()->departement->personnels->count() }}</span></h3>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row-->
-                                </div> <!-- end widget-rounded-circle-->
-                            </div> <!-- end col-->
-                        </div>
-                    </div>
-                    <!-- end row-->
-
-
                         <h3 class="page-title">Les états géneraux</h3>
                         <div class="row">
                             <div class="col-md-6 col-xl-3">
@@ -155,54 +83,99 @@
                             </div> <!-- end col-->
                         </div>
                         <!-- end row-->
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
                         
-                    <div class="row">
+                       <!-- start page title -->
+                        <div class="row">
                             <div class="col-12">
-                                <div class="card-box widget-inline">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-xl-6">
-                                            <div class="p-2 text-center">
-                                                <p class="text-muted font-15 mb-0">Total utilisateur(s)</p><br>
-                                                <i class="mdi mdi-account-group text-danger mdi-24px"></i>
-                                                <h3><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ Auth::user()->count() }}</span></h3>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-xl-6">
-                                            <div class="p-2 text-center">
-                                                <p class="text-muted mb-1">Nombre de salle(s)</p><br><br>
-                                                <i class=" icon-home text-blue mdi-24px"></i>
-                                                <h3 class="text-dark mt-1"><span class="badge badge-success badge-pill-right" data-plugin="counterup">{{ $sal }}</span></h3>
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- end row -->
-                                </div> <!-- end card-box-->
-                            </div> <!-- end col-->
+                                <div class="page-title-box">
+                                    <h3>Les états de votre Département</h3>
+                                </div>
+                            </div>
                         </div>     
-                        <!-- end row-->
+                        <!-- end page title --> 
 
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
+                                                <i class="icon-people font-22 avatar-title text-primary"></i>
+                                            </div>
+                                        </div>
+                                       <div class="col-6">
+                                            <div class="text-right">
+                                                <p class="text-muted mb-1">Nombre d'etudiant(s)</p>
+                                                <h3 class="text-dark mt-1"><span  data-plugin="counterup">{{ Auth::user()->departement->inscrires->count() }}</span></h3>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6 class="text-uppercase">Pourcentage <span class="float-right">
+                                            {{ Auth::user()->departement->inscrires->count()*"$etu"/100 }}% </span></h6>
+                                        <div class="progress progress-sm m-0">
+                                            <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:{{ Auth::user()->departement->inscrires->count() }}%">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-box-->
+                            </div> <!-- end col -->
 
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card-box">
+                                     <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                                <i class=" icon-user-follow font-22 avatar-title text-info"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-right">
+                                                <p class="text-muted mb-1">Nombre de personnel(s)</p>
+                                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ Auth::user()->departement->personnels->count() }}</span></h3>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                    <div class="mt-3">
+                                        <h6 class="text-uppercase">Pourcentage  <span class="float-right">{{ Auth::user()->departement->personnels->count()*"$per"/100 }}%</span></h6>
+                                        <div class="progress progress-sm m-0">
+                                            <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->departement->personnels->count()*$per/100 }}%">
+                                               <span class="sr-only">{{ Auth::user()->departement->personnels->count()*"$per"/100 }}% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-box-->
+                            </div> <!-- end col -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
-                        
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card-box">
+                                     <div class="row">
+                                        <div class="col-6">
+                                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                                <i class=" icon-user-follow font-22 avatar-title text-info"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-right">
+                                                <p class="text-muted mb-1">Nombre d'ulisateur(s)</p>
+                                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $per }}</span></h3>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                    <div class="mt-3">
+                                        <h6 class="text-uppercase">Pourcentage  <span class="float-right">{{ $per*$per/100 }}%</span></h6>
+                                        <div class="progress progress-sm m-0">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" style="width: {{$per*$per/100 }}%">
+                                                <span class="sr-only">{{$per*$per/100 }}% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-box-->
+                            </div> <!-- end col -->
 
                     </div> <!-- container -->
 
