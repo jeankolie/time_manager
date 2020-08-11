@@ -25,10 +25,15 @@
             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 
                 <!-- item-->
-                <a href="{{ route('logout') }}" class="dropdown-item notify-item btn-logout">
-                    <i class="fe-log-out"></i>
-                    Deconnexion
+
+                <a href="javascript:void(0);" class="dropdown-item notify-item" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    <i class="fe-log-out mr-1"></i>
+                    <span>{{ __('Déconnexion') }}</span>
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
 
             </div>
         </li>
