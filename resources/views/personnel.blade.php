@@ -26,7 +26,10 @@
                                                         <td>{{ $personnel->login }}</td>
                                                         <td class="text-right">
                                                             <a href="{{ route('personnels.edit', $personnel->login) }}" class="btn btn-info">Modifier</a>
-                                                            <a href="{{ route('personnels.destroy', $personnel->login) }}" class="btn btn-danger btn-delete">Supprimer</a>
+                                                            @if (!Auth::user()->is($personnel))
+                                                                <a href="{{ route('personnels.destroy', $personnel->login) }}" class="btn btn-danger btn-delete">Supprimer</a>
+                                                            @endif
+                                                            
                                                         </td>
                                                     </tr>
                                                 @endforeach

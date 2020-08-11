@@ -47,7 +47,10 @@
                                                             </td>
                                                             <td class="text-right">
                                                                 <a href="{{ route('departements.edit', $departement->slug) }}" class="btn btn-info">Modifier</a>
-                                                                <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger btn-delete">Supprimer</a>
+                                                                @if (!Auth::user()->departement()->is($departement))
+                                                                    <a href="{{ route('departements.destroy', $departement->slug) }}" class="btn btn-danger btn-delete">Supprimer</a>
+                                                                @endif
+                                                                
                                                             </td>
                                                         @endif
                                                             
