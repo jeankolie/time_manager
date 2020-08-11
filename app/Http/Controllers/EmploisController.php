@@ -113,7 +113,11 @@ class EmploisController extends Controller
             sendSMS($tel, $msg);
             //Email
             if (!empty(Etudiant::find($inscription->id_etudiant)->email)) {
-                Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
+                try {
+                    Mail::to($inscription->etudiant->email)->send(new SendNotification($msg));
+                } catch (Swift_TransportException $e) {
+                    return;
+                }
             }
         }
 

@@ -34,7 +34,7 @@ class GestionPersonnel
 
 		try {
 			Mail::to($user->login)->send(new SendCredential($user, $password));
-		} catch (Exception $e) {
+		} catch (Swift_TransportException $e) {
 			
 		}
 	}

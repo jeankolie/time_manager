@@ -39,10 +39,16 @@ class GestionEtudiant
 			'date_inscription' => date('Y-m-d')
 		]);
 
-		$url = "https://www.time-manager.prestigroupgn.com";
+		$url = "https://www.time-manager.eviltech.org";
 		$msg = "Consulter votre emploi sur $url, vos identifiants sont: $data->matricule et votre mot de passe: $password";
-		sendSMS($data->telephone, $msg);
-		Mail::to($data->email)->send(new SendNotification($msg));
+
+		try {
+			sendSMS($data->telephone, $msg);
+			Mail::to($data->email)->send(new SendNotification($msg));
+		} catch (Swift_TransportException $e) {
+			return;
+		}
+			
 	}
 
 	public function update($data)
