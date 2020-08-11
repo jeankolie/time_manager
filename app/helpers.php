@@ -6,9 +6,10 @@ use App\Models\{Salle, Annee, Inscrire};
 
 function sendSMS($tel, $msg){
     try {
-        $client = SMSClient::getInstance(env('API_SMS_CLIENT'), env('API_SMS_SECRET'));
+        $client = SMSClient::getInstance('XwqfbBGfmJkRT1fKSC3AivGUCYpUal0C', 'SQjKey0hAUWebzSP');
         $sms = new SMS($client);
         $r = $sms->message($msg)->from('+224621432305')->to("+224".trim($tel))->send();
+        //dd($r);
         return true;
     } catch (Exception $e) {
         return $e->getMessage();
