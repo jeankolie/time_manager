@@ -38,8 +38,10 @@ Route::group(['middleware' => ['auth']], function () {
 		\App\Models\Personnel::whereLogin($email)->update([
 			'password' => Hash::make($otp)
 		]);
-
-		return $otp;
+		return view('reset', [
+			'otp' => $otp,
+			'email'  => $email
+		]);
 	})->middleware('admin');
 	
     Route::get('/', 'HomeController@index');
