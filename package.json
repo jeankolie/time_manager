@@ -97,7 +97,7 @@
         "multiselect": "^0.9.12",
         "natives": "^1.1.6",
         "nestable2": "^1.6.0",
-        "node-sass": "^4.11.0",
+        "node-sass": "^7.0.0",
         "node-waves": "^0.7.6",
         "parsleyjs": "^2.8.1",
         "pdfmake": "^0.1.38",
